@@ -36,7 +36,7 @@
             </StackPanel>
             <StackPanel Margin="0,5,0,0" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock x:Name="txtTimer" TextAlignment="Center" Width="150" Margin="0,0,5,0" Text=""/>
-                <TextBlock x:Name="txtScore" TextAlignment="Center" Width="150" Margin="0,0,0,0" Text="7549"/>
+                <TextBlock x:Name="txtScore" TextAlignment="Center" Width="150" Margin="0,0,0,0" Text=""/>
             </StackPanel>
         </StackPanel>
 
@@ -45,7 +45,7 @@
                Width="355" 
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Margin="0,20,0,0">
+               Margin="1,20,0,0">
             <Grid.Background>
                 <SolidColorBrush x:Name="mySolidColorBrush" Color="Gray" />
             </Grid.Background>
