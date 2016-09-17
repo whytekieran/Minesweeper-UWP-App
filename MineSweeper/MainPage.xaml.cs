@@ -7,8 +7,10 @@ using Windows.Devices.Sensors;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -38,6 +40,44 @@ namespace MineSweeper
             }
         }
         //End constructor
+
+        //When this page has been navigated to
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            //Call method to check local setting for difficulty
+            checkDifficultySetting();
+        }
+
+        //Checks the current difficulty settings
+        private async void checkDifficultySetting()
+        {
+            try
+            {
+                //Get difficulty settings from local storage
+                ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+                App.difficulty = (string)localSettings.Values["gameDifficulty"];
+
+                //If we get nothing back then just set default setting (easy mode)
+                if (App.difficulty == null || App.difficulty == "")
+                {
+                    setDefaultSetting();
+                }
+            }
+            catch
+            {
+                //Show error message
+                MessageDialog msgbox = new MessageDialog("An issue has occured getting settings - defaults applied");
+                await msgbox.ShowAsync();
+
+                //If we get any exception then just set default setting (easy mode)
+                setDefaultSetting();
+            }
+        }
+
+        private void setDefaultSetting()
+        {
+            App.difficulty = "Easy";
+        }
 
         //This event handler is triggered when the orientation of the phone changes, because the method uses the
         //async keyword it will happen asynchronously. Hence allowing the application to continue with other tasks while this

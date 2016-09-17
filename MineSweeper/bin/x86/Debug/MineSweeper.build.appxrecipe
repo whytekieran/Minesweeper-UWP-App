@@ -334,11 +334,17 @@
     <AppxPackagedFile Include="C:\Users\Kieran\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\Images\Minesweeper1.jpeg">
-      <PackagePath>Images\Minesweeper1.jpeg</PackagePath>
+    <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\Images\Minesweeper2.jpeg">
+      <PackagePath>Images\Minesweeper2.jpeg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\Images\Minesweeper3.png">
+      <PackagePath>Images\Minesweeper3.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\Images\Minesweeper6.png">
+      <PackagePath>Images\Minesweeper6.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\Images\Minesweeper7.png">
+      <PackagePath>Images\Minesweeper7.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -366,6 +372,9 @@
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\MineSweeper.xr.xml">
       <PackagePath>MineSweeper.xr.xml</PackagePath>

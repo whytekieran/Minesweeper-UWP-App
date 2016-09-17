@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="White">
+    <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:ConnectionId='1' x:Name="VisualStateGroup">
                 <VisualState x:ConnectionId='2' x:Name="Portrait"/>
@@ -36,14 +36,14 @@
                        TextWrapping="Wrap" 
                        Text="MineSweeper" 
                        FontSize="50" 
-                       FontFamily="Snap ITC" />
+                       FontFamily="Showcard Gothic" />
         </StackPanel>
 
         <StackPanel x:ConnectionId='5' x:Name="ImagePanel"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center">
 
-            <Image Source="Images/Minesweeper1.jpeg" 
+            <Image Source="Images/Minesweeper7.png" 
                    Height="275" 
                    Width="300" />
         </StackPanel>
@@ -62,7 +62,7 @@
                     Content="Play" 
                     Width="80" 
                     Margin="0, 0, 15, 0" 
-                    Background="#33F7F3F3" 
+                    Background="White" 
                     BorderBrush="Black" 
                     FontFamily="Stencil"
                                              
@@ -73,7 +73,7 @@
                     Content="Scores" 
                     Width="80"  
                     Margin="0, 0, 15, 0" 
-                    Background="#33F7F3F3" 
+                    Background="White" 
                     BorderBrush="Black" 
                     FontFamily="Stencil"
                                              
@@ -83,7 +83,7 @@
             <Button x:ConnectionId='9' x:Name="btnExit" 
                     Content="Exit" 
                     Width="80" 
-                    Background="#33F7F3F3" 
+                    Background="White" 
                     BorderBrush="Black" 
                     FontFamily="Stencil"
                                              
