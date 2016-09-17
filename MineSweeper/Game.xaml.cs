@@ -26,5 +26,11 @@ namespace MineSweeper
         {
             this.InitializeComponent();
         }
+
+        //Click event to bring us to the settings page
+        private void settingsClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Settings));
+        }
     }
 }

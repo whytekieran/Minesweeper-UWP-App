@@ -76,7 +76,10 @@ namespace MineSweeper
 
         private void setDefaultSetting()
         {
+            //Sets game difficulty to 'easy'
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             App.difficulty = "Easy";
+            localSettings.Values["gameDifficulty"] = App.difficulty;
         }
 
         //This event handler is triggered when the orientation of the phone changes, because the method uses the
@@ -141,6 +144,7 @@ namespace MineSweeper
             this.Frame.Navigate(typeof(Game));
         }
 
+        //Click event to bring us to the settings page
         private void settingsClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Settings));

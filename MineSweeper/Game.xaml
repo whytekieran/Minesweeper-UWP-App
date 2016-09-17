@@ -7,7 +7,47 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
+
+        <StackPanel Orientation="Horizontal" 
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Center"  >
+            <RadioButton x:Name="rbSixGrid" 
+                         FontSize="25" 
+                         Tag="6" 
+                         Content="6 x 6" 
+                         Margin="15,0,0,0" 
+                         FontFamily="Showcard Gothic" />
+            <RadioButton x:Name="rbEightGrid" 
+                         FontSize="25" 
+                         Tag="8" 
+                         Content="8 x 8" 
+                         FontFamily="Showcard Gothic" />
+            <RadioButton x:Name="rbTenGrid" 
+                         FontSize="25" 
+                         Tag="10" 
+                         Content="10 x 10" 
+                         FontFamily="Showcard Gothic" />
+        </StackPanel>
+
+        <Grid  x:Name="contentGrid" 
+               Height="500" 
+               Width="375" 
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Margin="0,30,0,0">
+
+            <Grid.Background>
+                <SolidColorBrush x:Name="mySolidColorBrush" Color="Gray" />
+            </Grid.Background>
+        </Grid>
 
     </Grid>
+    <Page.BottomAppBar>
+        <AppBar Background="LightGray" IsOpen="false" IsSticky="True">
+            <StackPanel Orientation="Horizontal">
+                <AppBarButton x:Name="Settings" Label="Settings" Icon="Setting" Click="settingsClick"/>
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
 </Page>
