@@ -9,9 +9,9 @@
 
     <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="Portrait6"/>
-                <VisualState x:Name="Landscape5">
+            <VisualStateGroup x:ConnectionId='1' x:Name="VisualStateGroup">
+                <VisualState x:ConnectionId='2' x:Name="Portrait6"/>
+                <VisualState x:ConnectionId='3' x:Name="Landscape5">
                     <VisualState.Setters>
                         <Setter Target="stackPanel.(FrameworkElement.Height)" Value="88"/>
                         <Setter Target="stackPanel.(FrameworkElement.Margin)">
@@ -26,11 +26,11 @@
         </VisualStateManager.VisualStateGroups>
 
 
-        <StackPanel x:Name="TitlePanel" 
+        <StackPanel x:ConnectionId='4' x:Name="TitlePanel" 
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Top">
 
-            <TextBlock x:Name="Title"
+            <TextBlock x:ConnectionId='11' x:Name="Title"
                        Margin="0, 20, 0, 0" 
                        TextWrapping="Wrap" 
                        Text="MineSweeper" 
@@ -38,16 +38,16 @@
                        FontFamily="Showcard Gothic" />
         </StackPanel>
 
-        <StackPanel x:Name="ImagePanel"
+        <StackPanel x:ConnectionId='5' x:Name="ImagePanel"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center">
 
-            <Image x:Name="image" Source="Images/Minesweeper7.png" 
+            <Image x:ConnectionId='10' x:Name="image" Source="Images/Minesweeper7.png" 
                    Height="275" 
                    Width="300" />
         </StackPanel>
 
-        <StackPanel x:Name="stackPanel" HorizontalAlignment="Center" 
+        <StackPanel x:ConnectionId='6' x:Name="stackPanel" HorizontalAlignment="Center" 
                     VerticalAlignment="Bottom"
                     Orientation="Horizontal"
                     Margin="0, 0, 0, 100" 
@@ -57,44 +57,45 @@
                 <CompositeTransform/>
             </StackPanel.RenderTransform>
 
-            <Button x:Name="btnPlay" 
+            <Button x:ConnectionId='7' x:Name="btnPlay" 
                     Content="Play" 
                     Width="94" 
                     Margin="0, 0, 15, 0" 
                     Background="White" 
                     BorderBrush="Black" 
                     FontFamily="Stencil"
-                    PointerEntered="btnHover"
-                    PointerExited="btnHoverStopped"
-                    Click="playClick"/>
+                                             
+                                                   
+                                     />
 
-            <Button x:Name="btnScores" 
+            <Button x:ConnectionId='8' x:Name="btnScores" 
                     Content="Scores" 
                     Width="94"  
                     Margin="0, 0, 15, 0" 
                     Background="White" 
                     BorderBrush="Black" 
                     FontFamily="Stencil"
-                    PointerEntered="btnHover"
-                    PointerExited="btnHoverStopped"
-                    Click="scoresClick"/>
+                                             
+                                                   
+                                       />
 
-            <Button x:Name="btnExit" 
+            <Button x:ConnectionId='9' x:Name="btnExit" 
                     Content="Exit" 
                     Width="94" 
                     Background="White" 
                     BorderBrush="Black" 
                     FontFamily="Stencil"
-                    PointerEntered="btnHover"
-                    PointerExited="btnHoverStopped"
-                    Click="exitClick"/>
+                                             
+                                                   
+                                     />
         </StackPanel>
     </Grid>
     <Page.BottomAppBar>
         <AppBar Background="LightGray" IsOpen="false" IsSticky="True">
             <StackPanel Orientation="Horizontal">
-                <AppBarButton x:Name="Settings" Label="Settings" Icon="Setting" Click="settingsClick"/>
+                <AppBarButton x:ConnectionId='12' x:Name="Settings" Label="Settings" Icon="Setting"                      />
             </StackPanel>
         </AppBar>
     </Page.BottomAppBar>
 </Page>
+

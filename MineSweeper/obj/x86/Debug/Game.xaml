@@ -14,40 +14,40 @@
                         VerticalAlignment="Center" 
                         HorizontalAlignment="Center"  
                         Margin="0,5,0,0">
-                <RadioButton x:Name="rbSixGrid" 
+                <RadioButton x:ConnectionId='5' x:Name="rbSixGrid" 
                              FontSize="20" 
                              Tag="6" 
                              Content="6 x 6" 
                              Margin="15,0,0,0" 
                              FontFamily="Showcard Gothic" 
-                             Checked="startMineGame" />
-                <RadioButton x:Name="rbEightGrid" 
+                                                     />
+                <RadioButton x:ConnectionId='6' x:Name="rbEightGrid" 
                              FontSize="20" 
                              Tag="8" 
                              Content="8 x 8" 
                              FontFamily="Showcard Gothic"
-                             Checked="startMineGame" />
-                <RadioButton x:Name="rbTenGrid" 
+                                                     />
+                <RadioButton x:ConnectionId='7' x:Name="rbTenGrid" 
                              FontSize="20" 
                              Tag="10" 
                              Content="10 x 10" 
                              FontFamily="Showcard Gothic"
-                             Checked="startMineGame" />
+                                                     />
             </StackPanel>
             <StackPanel Margin="0,5,0,0" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock x:Name="txtTimer" TextAlignment="Center" Width="150" Margin="0,0,5,0" Text=""/>
-                <TextBlock x:Name="txtScore" TextAlignment="Center" Width="150" Margin="0,0,0,0" Text="7549"/>
+                <TextBlock x:ConnectionId='3' x:Name="txtTimer" TextAlignment="Center" Width="150" Margin="0,0,5,0" Text=""/>
+                <TextBlock x:ConnectionId='4' x:Name="txtScore" TextAlignment="Center" Width="150" Margin="0,0,0,0" Text="7549"/>
             </StackPanel>
         </StackPanel>
 
-        <Grid  x:Name="contentGrid" 
+        <Grid x:ConnectionId='1'  x:Name="contentGrid" 
                Height="470" 
                Width="355" 
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Margin="0,20,0,0">
             <Grid.Background>
-                <SolidColorBrush x:Name="mySolidColorBrush" Color="Gray" />
+                <SolidColorBrush x:ConnectionId='2' x:Name="mySolidColorBrush" Color="Gray" />
             </Grid.Background>
         </Grid>
 
@@ -55,8 +55,9 @@
     <Page.BottomAppBar>
         <AppBar Background="LightGray" IsOpen="false" IsSticky="True">
             <StackPanel Orientation="Horizontal">
-                <AppBarButton x:Name="Settings" Label="Settings" Icon="Setting" Click="settingsClick"/>
+                <AppBarButton x:ConnectionId='8' x:Name="Settings" Label="Settings" Icon="Setting"                      />
             </StackPanel>
         </AppBar>
     </Page.BottomAppBar>
 </Page>
+

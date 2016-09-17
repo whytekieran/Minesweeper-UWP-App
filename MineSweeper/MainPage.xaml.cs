@@ -95,17 +95,17 @@ namespace MineSweeper
                     case SimpleOrientation.NotRotated:  //If the phone isnt being rotated (portrait)
                         //Portrait 
                         DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;  //Set orientation to portrait
-                        VisualStateManager.GoToState(this, "Portrait", true);                       //use portrait visual state
+                        VisualStateManager.GoToState(this, "Portrait6", true);                       //use portrait visual state
                         break;
                     case SimpleOrientation.Rotated90DegreesCounterclockwise:  //if rotated 90degrees to the left
                         //Landscape
                         DisplayInformation.AutoRotationPreferences = DisplayOrientations.Landscape; //set orientation to landscape
-                        VisualStateManager.GoToState(this, "Landscape", true);                      //use the landscape visual state
+                        VisualStateManager.GoToState(this, "Landscape5", true);                      //use the landscape visual state
                         break;
                     case SimpleOrientation.Rotated270DegreesCounterclockwise: //if 90degrees rotated to the right
                         //Landscape
                         DisplayInformation.AutoRotationPreferences = DisplayOrientations.Landscape; //set orientation to landscape
-                        VisualStateManager.GoToState(this, "Landscape", true);                      //use the landscape visual state
+                        VisualStateManager.GoToState(this, "Landscape5", true);                      //use the landscape visual state
                         break;
                 }
             });

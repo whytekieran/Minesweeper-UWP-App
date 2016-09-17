@@ -30,31 +30,32 @@
                 <StackPanel 
                     HorizontalAlignment="Center" 
                     Margin="0, 100, 0, 100">
-                    <RadioButton x:Name="rbEasy" 
+                    <RadioButton x:ConnectionId='1' x:Name="rbEasy" 
                                  Foreground="White" 
                                  FontSize="30"
                                  FontWeight="Bold"
                                  Tag="Easy" 
                                  Content="Easy" 
                                  Margin="0, 20, 0, 10"
-                                 Checked="rbDifficulty"/>
-                    <RadioButton x:Name="rbMedium" 
+                                                       />
+                    <RadioButton x:ConnectionId='2' x:Name="rbMedium" 
                                  Foreground="White" 
                                  FontSize="30" 
                                  Tag="Medium" 
                                  Content="Medium" 
                                  FontWeight="Bold"
                                  Margin="0, 0, 0, 10"
-                                 Checked="rbDifficulty"/>
-                    <RadioButton x:Name="rbHard"  
+                                                       />
+                    <RadioButton x:ConnectionId='3' x:Name="rbHard"  
                                  Foreground="White" 
                                  FontSize="30" 
                                  Tag="Hard"
                                  FontWeight="Bold"
                                  Content="Hard"
-                                 Checked="rbDifficulty"/>
+                                                       />
                 </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
+
