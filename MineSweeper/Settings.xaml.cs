@@ -25,6 +25,35 @@ namespace MineSweeper
             this.InitializeComponent();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            //Checks the radio button that the game difficulty is currently set to
+            checkCurrentSettingRadioButton();
+        }
+
+        private void checkCurrentSettingRadioButton()
+        {
+            //Get local settings
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            App.difficulty = (string)localSettings.Values["gameDifficulty"];
+
+            if(App.difficulty == "Easy")
+            {
+                RadioButton btn = (RadioButton)this.FindName("rbEasy");
+                btn.IsChecked = true;
+            }
+            else if(App.difficulty == "Medium")
+            {
+                RadioButton btn = (RadioButton)this.FindName("rbMedium");
+                btn.IsChecked = true;
+            }
+            else if(App.difficulty == "Hard")
+            {
+                RadioButton btn = (RadioButton)this.FindName("rbHard");
+                btn.IsChecked = true;
+            }
+        }
+
         //Checked event for radio buttons, when one is checked
         private void rbDifficulty(object sender, RoutedEventArgs e)
         {

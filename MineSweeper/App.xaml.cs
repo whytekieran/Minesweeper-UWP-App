@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,9 @@ namespace MineSweeper
     {
         //Global variable for difficulty setting
         public static string difficulty;
+        public static bool gameRunning = false;                               //Handles game running if we leave the page
+        public static DispatcherTimer timer;                                  //Timer is used to launch a tick event
+        public static Stopwatch stopWatch;                                    //Stopwatch works by ticks specified by timer
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -60,7 +64,7 @@ namespace MineSweeper
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
                 //////////
-                rootFrame.Navigated += RootFrame_Navigated;
+                rootFrame.Navigated += RootFrame_Navigated; //Added event to created back arrow if we naviate from root frame
                 ///////////
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
@@ -73,7 +77,7 @@ namespace MineSweeper
 
                 ///////////////////////////////
                 // Register a handler for BackRequested events and set the  
-                // visibility of the Back button  
+                // visibility of the Back button 
                 SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
@@ -96,7 +100,8 @@ namespace MineSweeper
                 Window.Current.Activate();
             }
         }
-        /////////////
+        
+        //When we naviate away from root frame create a back button
         private void RootFrame_Navigated(object sender, NavigationEventArgs e)
         {
             // Each time a navigation event occurs, update the Back button's visibility  
@@ -106,6 +111,7 @@ namespace MineSweeper
                 AppViewBackButtonVisibility.Collapsed;
         }
 
+        //When we press the back button
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
@@ -114,6 +120,14 @@ namespace MineSweeper
             {
                 e.Handled = true;
                 rootFrame.GoBack();
+            }
+
+            //If a game is running stop the times and set game running to false
+            if(gameRunning == true)
+            {
+                gameRunning = false;
+                timer.Stop();                                       //Stop the timers
+                stopWatch.Stop();
             }
         }
         ///////////////////

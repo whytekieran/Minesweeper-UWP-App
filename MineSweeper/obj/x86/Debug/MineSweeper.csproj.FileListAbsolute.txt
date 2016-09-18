@@ -316,7 +316,6 @@ B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\D
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\System.Xml.XDocument.dll
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\System.Xml.XmlDocument.dll
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\System.Xml.XmlSerializer.dll
-B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\MineSweeper.csprojResolveAssemblyReference.cache
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\App.g.i.cs
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\App.g.cs
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\Game.g.i.cs

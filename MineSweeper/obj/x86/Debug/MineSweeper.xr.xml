@@ -43,14 +43,12 @@
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontFamily" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.RadioButton">
+    <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
       <RootProperty Name="FontSize" />
       <RootProperty Name="Tag" />
       <RootProperty Name="Content" />
       <RootProperty Name="Margin" />
       <RootProperty Name="FontFamily" />
-      <RootProperty Name="Foreground" />
-      <RootProperty Name="FontWeight" />
       <RootEvent Name="Checked" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBar">
@@ -100,6 +98,15 @@
     <RootType FullName="MineSweeper.Scores" />
     <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
       <RootProperty Name="ImageSource" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.RadioButton">
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="FontWeight" />
+      <RootProperty Name="Tag" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="Checked" />
     </RootType>
     <RootType FullName="MineSweeper.Settings" />
   </Roots.RootTypes>

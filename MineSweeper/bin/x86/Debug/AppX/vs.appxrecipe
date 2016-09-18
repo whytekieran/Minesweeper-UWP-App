@@ -28,13 +28,13 @@
     <AppXManifest Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-09-17T22:44:59.564</Modified>
+      <Modified>2016-09-18T15:02:45.004</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\MineSweeper.exe">
       <PackagePath>entrypoint\MineSweeper.exe</PackagePath>
-      <Modified>2016-09-17T22:44:59.267</Modified>
+      <Modified>2016-09-18T15:02:44.623</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kieran\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -504,7 +504,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\MineSweeper.xr.xml">
       <PackagePath>MineSweeper.xr.xml</PackagePath>
-      <Modified>2016-09-17T22:09:50.815</Modified>
+      <Modified>2016-09-18T11:47:21.767</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -512,11 +512,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-09-17T22:37:46.516</Modified>
+      <Modified>2016-09-18T14:23:29.272</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\Core\MineSweeper.exe">
       <PackagePath>MineSweeper.exe</PackagePath>
-      <Modified>2016-09-17T22:44:59.560</Modified>
+      <Modified>2016-09-18T15:02:45.000</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
