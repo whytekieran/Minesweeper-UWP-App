@@ -554,7 +554,7 @@ namespace MineSweeper
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             App.difficulty = (string)localSettings.Values["gameDifficulty"];
 
-            return App.difficulty;
+            return App.difficulty; //return the difficulty of the game
         }
     }
 }
