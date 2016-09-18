@@ -29,17 +29,14 @@ namespace MineSweeper
     /// </summary>
     public sealed partial class Game : Page
     {
-        //DispatcherTimer timer;                                  //Timer is used to launch a tick event
-        //Stopwatch stopWatch;                                    //Stopwatch works by ticks specified by timer
         private long mins;                                      //Holds the minutes of the timer
         private long secs;                                      //Holds the seconds of the timer
         private string difficulty;                              //Holds the game difficulty setting
         private int score = 0;                                  //The users score
-        //private bool gameRunning = false;                       //Keeps track if a game is currently running or not
         CheckBox btnChecked;                                    //Holds which user game choice is checked
         private int[] mines;                                    //Holds the mine locations
         Rectangle tappedCell;                                   //Holds the currently tapped rectangle
-        private int gridSize;                                   //Holds the grid size, hence the amount of mines we need
+        private int gridSize;                                   //Holds the grid size, hence the amount of mines we need                           
 
         private List<int> list;
 
@@ -227,20 +224,154 @@ namespace MineSweeper
         //Tapped event for each cell of the grid
         private void MyR_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            // tappedCell = (Rectangle)sender;
-            // int row = (int)tappedCell.GetValue(Grid.RowProperty);
-            // int column = (int)tappedCell.GetValue(Grid.ColumnProperty);
+            tappedCell = (Rectangle)sender;                         //Find the rectangle (cell) that was tapped
+            int row = (int)tappedCell.GetValue(Grid.RowProperty);   //Get its row and column
+            int column = (int)tappedCell.GetValue(Grid.ColumnProperty);
 
+            //Get the actual cell number eg (2,3) would be cell number 16
+            int tappedCellNumber = getCellsTappedNumber(row, column);  
 
+            bool hit = searchForMine(tappedCellNumber); //Search if that location contains a mine
+
+            if(hit)//If it does
+            {
+                tappedCell.Fill = new SolidColorBrush(Colors.Red);   //fill that cell red
+                showAllTheMines();                                   //show where all the other mines are
+                showMineHitGameOverMsg();                            //Output a game over message
+            }
+            else //if not
+            {
+                tappedCell.Fill = new SolidColorBrush(Colors.Green);
+                //increment the score and output based on game difficulty
+            }
+        }
+
+        //Method to show all the mines as red rectangles
+        private void showAllTheMines()
+        {
+            int row;
+            int col;
+            Rectangle mineCell;
+
+            for(int i = 0; i < mines.Count(); ++i)//Loop over the mine location array
+            {
+                mineCell = new Rectangle();                     //Create rectangle
+                row = convertTo2DRow(mines[i]);                 //Use location number to get grids row
+                col = convertTo2DCol(mines[i]);                 //Use location number to get grid column
+                mineCell.SetValue(Grid.RowProperty, row);       //Set rectangle to the row and col values
+                mineCell.SetValue(Grid.ColumnProperty, col);
+                mineCell.Fill = new SolidColorBrush(Colors.Red);    //Colour rectangle red
+                gameGrid.Children.Add(mineCell);                    //Add the rectangle to the grid
+            }
+        }
+
+        //Method to convert the mine location number to a grid row
+        private int convertTo2DCol(int mineNumber)
+        {
+            int col = mineNumber % gridSize;
+            return col;
+        }
+
+        //Method to convert the mine location number to a grid column
+        private int convertTo2DRow(int mineNumber)
+        {
+            int row = mineNumber / gridSize;
+            return row;
+        }
+
+        //Show message indicating a mine g=hit and end of game
+        private async void showMineHitGameOverMsg()
+        {
+            MessageDialog msgDialog = new MessageDialog("You struck a mine - Game Over :(", "Game Over");
+
+            //OK Button
+            UICommand okBtn = new UICommand("OK");
+            okBtn.Invoked = OkBtnClick;                 //Add event for the okay button
+            msgDialog.Commands.Add(okBtn);
+
+            App.timer.Stop();                                         //Stop the timer
+            App.stopWatch.Stop();                                     //Stop the stopwatch
+
+            await msgDialog.ShowAsync();
+        }
+
+        //Okay button event for the showMineHitGameOverMsg() message dialog button
+        private void OkBtnClick(IUICommand command)
+        {
+            App.gameRunning = false;                               //Game is not longer running
+            txtTimer.Text = "0" + ":" + "00";                     //Output zero minutes and seconds
+            txtScore.Text = "0";                                  //Score set back to zero
+            btnChecked.IsChecked = false;                         //User game choice uncheck
+            gameGrid.ColumnDefinitions.Clear();                   //Clear everything in the grid
+            gameGrid.RowDefinitions.Clear();
+            gameGrid.Children.Clear();
+        }
+
+        //Checks if any mine number matches the tapped cells number
+        private bool searchForMine(int tappedCellNumber)
+        {
+            bool hit = false;
+
+            for(int i = 0; i < mines.Count(); ++i)//loop over array of mine locations
+            {
+                if(mines[i] == tappedCellNumber)//if any of the locations equal the tapped cell number
+                {
+                    hit = true;                 //hit is now true
+                }
+            }
+
+            return hit;                         //return the result
+        }
+
+        //Gets the actual cell number of the tapped cell. eg (2,3) would be cell number 16. This way we can compare
+        //the tapped cell number to the int array full of random mine locations.
+        private int getCellsTappedNumber(int row, int column)
+        {
+            int tappedNumber = -1;
+
+            switch(row)
+            {
+                case 0:
+                    tappedNumber = column + 1;
+                    break;
+                case 1:
+                    tappedNumber = ((gridSize * 1) + 1) + column;
+                    break;
+                case 2:
+                    tappedNumber = ((gridSize * 2) + 1) + column;
+                    break;
+                case 3:
+                    tappedNumber = ((gridSize * 3) + 1) + column;
+                    break;
+                case 4:
+                    tappedNumber = ((gridSize * 4) + 1) + column;
+                    break;
+                case 5:
+                    tappedNumber = ((gridSize * 5) + 1) + column;
+                    break;
+                case 6:
+                    tappedNumber = ((gridSize * 6) + 1) + column;
+                    break;
+                case 7:
+                    tappedNumber = ((gridSize * 7) + 1) + column;
+                    break;
+                case 8:
+                    tappedNumber = ((gridSize * 8) + 1) + column;
+                    break;
+                case 9:
+                    tappedNumber = ((gridSize * 9) + 1) + column;
+                    break;
+            }
+            return tappedNumber;
         }
 
         //Used for testing
-        /*private async void showMessage(int[] list)
+        private async void showMessage(int t)
         {
             list.ToString();
-            MessageDialog msgbox = new MessageDialog(list.Count().ToString());
+            MessageDialog msgbox = new MessageDialog(t.ToString());
             await msgbox.ShowAsync();
-        }*/
+        }
 
         //Method to start the games timer
         private void startTimer()
@@ -276,11 +407,11 @@ namespace MineSweeper
                 //if mins is less than zero and seconds is zero to (outer if) your out of time, game over
                 if (mins < 0)
                 {
+                    App.timer.Stop();                                         //Stop the timer
+                    App.stopWatch.Stop();                                     //Stop the stopwatch
                     txtTimer.Text = "0" + ":" + "00";                     //Output zero minutes and seconds
                     txtScore.Text = "0";                                  //Score set back to zero
                     App.gameRunning = false;                                  //Game is not longer running
-                    App.timer.Stop();                                         //Stop the timer
-                    App.stopWatch.Stop();                                     //Stop the stopwatch
                     btnChecked.IsChecked = false;                         //User game choice uncheck
                     gameGrid.ColumnDefinitions.Clear();                   //Clear everything in the grid
                     gameGrid.RowDefinitions.Clear();
@@ -289,6 +420,8 @@ namespace MineSweeper
                 }
             }
         }
+
+        
 
         //Displays a game over message box with the users score
         private async void gameOverMessageDisplay()
@@ -312,15 +445,15 @@ namespace MineSweeper
             switch(difficulty)
             {
                 case "Easy":                                    //Easy Game
-                    secs = 10;                                  //seconds for timer is set to 60
+                    secs = 60;                                  //seconds for timer is set to 60
                     mins = 0;                                   //minutes for timer is set to 6
                     break;
                 case "Medium":                                  //Medium Game
-                    secs = 10;                                  //seconds for timer is set to 60
+                    secs = 60;                                  //seconds for timer is set to 60
                     mins = 0;                                   //minutes for timer is set to 4
                     break;
                 case "Hard":                                    //Hard Game
-                    secs = 10;                                  //seconds for timer is set to 60
+                    secs = 60;                                  //seconds for timer is set to 60
                     mins = 0;                                   //minutes for timer is set to 3
                     break;
             }

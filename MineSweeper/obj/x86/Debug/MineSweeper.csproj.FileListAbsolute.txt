@@ -406,3 +406,4 @@ B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\D
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\qualifiers.txt.intermediate
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\ProjectArchitectures.txt
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\MineSweeper.csprojResolveAssemblyReference.cache
