@@ -98,8 +98,8 @@ namespace MineSweeper
                 gameGrid.ColumnDefinitions.Add(new ColumnDefinition());
             }
 
-            createClickableCells(gridSize);
-            setMineLocations(gridSize);
+            createClickableCells(gridSize);         //creates clickable area in each cell using a rectangle
+            setMineLocations(gridSize);             //Generates mines and their locations on the grid
         }
 
         //Sets the location and amount of mines depending on grid size and game difficulty
@@ -182,6 +182,13 @@ namespace MineSweeper
             }
         }
 
+        //Used for testing
+         private async void showMessage(int [] ary)
+         {
+             MessageDialog msgbox = new MessageDialog(ary[0].ToString() + " " + ary[1].ToString() + " " + ary[2].ToString());
+             await msgbox.ShowAsync();
+         }
+
         //Creates a list with all cell numbers by using gridsize x gridsize
         private void generateRandomMinesList(int gridSize)
         {
@@ -227,6 +234,7 @@ namespace MineSweeper
             tappedCell = (Rectangle)sender;                         //Find the rectangle (cell) that was tapped
             int row = (int)tappedCell.GetValue(Grid.RowProperty);   //Get its row and column
             int column = (int)tappedCell.GetValue(Grid.ColumnProperty);
+            bool mineFound = false;
 
             //Get the actual cell number eg (2,3) would be cell number 16
             int tappedCellNumber = getCellsTappedNumber(row, column);  
@@ -237,13 +245,94 @@ namespace MineSweeper
             {
                 tappedCell.Fill = new SolidColorBrush(Colors.Red);   //fill that cell red
                 showAllTheMines();                                   //show where all the other mines are
-                showMineHitGameOverMsg();                            //Output a game over message
+                //showMineHitGameOverMsg();                            //Output a game over message
             }
-            else //if not
+            else //if there was not a mine hit
             {
-                tappedCell.Fill = new SolidColorBrush(Colors.Green);
-                //increment the score and output based on game difficulty
+                mineFound = checkIfMineIsAdjacent(row, column);//Check if there are nearby mines
+
+                if(mineFound == true)//if a mine is nearby
+                {
+                    tappedCell.Fill = new SolidColorBrush(Colors.Yellow);//tapped tile turns yellow (warning)
+                }
+                else//if not
+                {
+                    tappedCell.Fill = new SolidColorBrush(Colors.Green);//tapped tile turns greet (all clear)
+                }
+
+                //Method name speaks for itself :)
+                incrementScoreBasedOnDifficulty();
             }
+        }
+
+        //Checks if any mines are directly adjacent to the cell the user just clicked
+        private bool checkIfMineIsAdjacent(int row, int column)
+        {
+            int tappedNumber;
+            bool mineFound = false;
+
+            for (int i = (row - 1); i <= (row + 1); ++i)
+            {
+                if(mineFound == true)//If a mine has alread been found break the outer loop
+                {
+                    break;
+                }
+
+                for(int j = (column - 1); j <= (column + 1); ++j)
+                {
+                    if((i < 0 || i >= gridSize) || (j < 0 || j >= gridSize))//out of bounds so dont check
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        if(i == row && j == column)//dont check the grid user tapped for a mine
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            //Get cell number of grid we are looping over
+                            //Check if the current grid we are looping over has a mine
+                            tappedNumber = getCellsTappedNumber(i, j);
+                            mineFound = searchForMine(tappedNumber);
+
+                            if(mineFound == true) //if we find a mine break the inner loop
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }//inner if/else (inner loop)
+                    }//outer if/else (inner loop)
+                }//End inner loop
+            }//End outer loop
+
+            return mineFound;
+
+        }//End method
+
+        //Increments the players score
+        private void incrementScoreBasedOnDifficulty()
+        {
+            difficulty = getGameDifficulty();
+
+            if(difficulty == "Easy")
+            {
+                score += 3;
+            }
+            else if(difficulty == "Medium")
+            {
+                score += 6;
+            }
+            else if(difficulty == "Hard")
+            {
+                score += 9;
+            }
+
+            txtScore.Text = score.ToString();
         }
 
         //Method to show all the mines as red rectangles
@@ -269,6 +358,16 @@ namespace MineSweeper
         private int convertTo2DCol(int mineNumber)
         {
             int col = mineNumber % gridSize;
+            
+            if(col != 0)
+            {
+                col -= 1;
+            }
+            else
+            {
+                col = 5;
+            }
+
             return col;
         }
 
@@ -280,7 +379,7 @@ namespace MineSweeper
         }
 
         //Show message indicating a mine g=hit and end of game
-        private async void showMineHitGameOverMsg()
+       private async void showMineHitGameOverMsg()
         {
             MessageDialog msgDialog = new MessageDialog("You struck a mine - Game Over :(", "Game Over");
 
@@ -365,14 +464,6 @@ namespace MineSweeper
             return tappedNumber;
         }
 
-        //Used for testing
-        private async void showMessage(int t)
-        {
-            list.ToString();
-            MessageDialog msgbox = new MessageDialog(t.ToString());
-            await msgbox.ShowAsync();
-        }
-
         //Method to start the games timer
         private void startTimer()
         {
@@ -421,8 +512,6 @@ namespace MineSweeper
             }
         }
 
-        
-
         //Displays a game over message box with the users score
         private async void gameOverMessageDisplay()
         {
@@ -446,15 +535,15 @@ namespace MineSweeper
             {
                 case "Easy":                                    //Easy Game
                     secs = 60;                                  //seconds for timer is set to 60
-                    mins = 0;                                   //minutes for timer is set to 6
+                    mins = 6;                                   //minutes for timer is set to 6
                     break;
                 case "Medium":                                  //Medium Game
                     secs = 60;                                  //seconds for timer is set to 60
-                    mins = 0;                                   //minutes for timer is set to 4
+                    mins = 4;                                   //minutes for timer is set to 4
                     break;
                 case "Hard":                                    //Hard Game
                     secs = 60;                                  //seconds for timer is set to 60
-                    mins = 0;                                   //minutes for timer is set to 3
+                    mins = 3;                                   //minutes for timer is set to 3
                     break;
             }
         }
