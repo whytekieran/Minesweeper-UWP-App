@@ -36,7 +36,9 @@ namespace MineSweeper
         CheckBox btnChecked;                                    //Holds which user game choice is checked
         private int[] mines;                                    //Holds the mine locations
         Rectangle tappedCell;                                   //Holds the currently tapped rectangle
-        private int gridSize;                                   //Holds the grid size, hence the amount of mines we need                           
+        private int gridSize;                                   //Holds the grid size, hence the amount of mines we need 
+        private int totalCellsLeft;                         //Holds how many cells are in the grid. taken from after each tap event   
+        private int mineAmnt;                                   //Holds how many mines are in the game
 
         private List<int> list;
 
@@ -72,6 +74,7 @@ namespace MineSweeper
                 //get first value from content of radio button (6, 8 or 10)
                 gridSize = Convert.ToInt32(btnChecked.Content.ToString().Substring(0,
                                            Convert.ToInt32(btnChecked.Content.ToString().IndexOf(" "))));
+                totalCellsLeft = gridSize * gridSize; //Set the total cell amount of the grid.
 
                 createGamesGrid(gridSize);
                 startTimer();                                           //Start the games timer
@@ -116,6 +119,9 @@ namespace MineSweeper
                     generateRandomMinesList(gridSize);
                     //Shuffle list and take three random numbers (mines) from it
                     mines = list.OrderBy(_ => rnd.Next()).Take(3).ToArray();
+                    //Finds how many mines are in this game
+                    mineAmnt = 3;
+                    showMessage(mines);
                 }
                 else if(gridSize == 8)//if grid is 8 x 8 (64 cells)
                 {
@@ -123,6 +129,7 @@ namespace MineSweeper
                     generateRandomMinesList(gridSize);
                     //Shuffle list and take five random numbers (mines) from it
                     mines = list.OrderBy(_ => rnd.Next()).Take(5).ToArray();
+                    mineAmnt = 5;
                 }
                 else if(gridSize == 10)//if grid is 10 x 10 (100 cells)
                 {
@@ -130,6 +137,7 @@ namespace MineSweeper
                     generateRandomMinesList(gridSize);
                     //Shuffle list and take nine random numbers (mines) from it
                     mines = list.OrderBy(_ => rnd.Next()).Take(9).ToArray();
+                    mineAmnt = 9;
                 }
             }
             else if(difficulty == "Medium")//If game difficulty is medium
@@ -140,6 +148,7 @@ namespace MineSweeper
                     generateRandomMinesList(gridSize);
                     //Shuffle list and take six random numbers (mines) from it
                     mines = list.OrderBy(_ => rnd.Next()).Take(6).ToArray();
+                    mineAmnt = 6;
                 }
                 else if (gridSize == 8)//if grid is 8 x 8
                 {
@@ -147,6 +156,7 @@ namespace MineSweeper
                     generateRandomMinesList(gridSize);
                     //Shuffle list and take nine random numbers (mines) from it
                     mines = list.OrderBy(_ => rnd.Next()).Take(9).ToArray();
+                    mineAmnt = 9;
                 }
                 else if (gridSize == 10)//if grid is 10 x 10
                 {
@@ -154,6 +164,7 @@ namespace MineSweeper
                     generateRandomMinesList(gridSize);
                     //Shuffle list and take thirtheen random numbers (mines) from it
                     mines = list.OrderBy(_ => rnd.Next()).Take(13).ToArray();
+                    mineAmnt = 13;
                 }
             }
             else if(difficulty == "Hard")//If game difficulty is hard
@@ -164,6 +175,7 @@ namespace MineSweeper
                     generateRandomMinesList(gridSize);
                     //Shuffle list and take ten random numbers (mines) from it
                     mines = list.OrderBy(_ => rnd.Next()).Take(10).ToArray();
+                    mineAmnt = 10;
                 }
                 else if (gridSize == 8)//if grid is 8 x 8
                 {
@@ -171,6 +183,7 @@ namespace MineSweeper
                     generateRandomMinesList(gridSize);
                     //Shuffle list and take fifthteen random numbers (mines) from it
                     mines = list.OrderBy(_ => rnd.Next()).Take(15).ToArray();
+                    mineAmnt = 15;
                 }
                 else if (gridSize == 10)//if grid is 10 x 10
                 {
@@ -178,6 +191,7 @@ namespace MineSweeper
                     generateRandomMinesList(gridSize);
                     //Shuffle list and take three twenty numbers (mines) from it
                     mines = list.OrderBy(_ => rnd.Next()).Take(20).ToArray();
+                    mineAmnt = 20;
                 }
             }
         }
@@ -245,7 +259,7 @@ namespace MineSweeper
             {
                 tappedCell.Fill = new SolidColorBrush(Colors.Red);   //fill that cell red
                 showAllTheMines();                                   //show where all the other mines are
-                //showMineHitGameOverMsg();                            //Output a game over message
+                showMineHitGameOverMsg();                            //Output a game over message
             }
             else //if there was not a mine hit
             {
@@ -262,7 +276,27 @@ namespace MineSweeper
 
                 //Method name speaks for itself :)
                 incrementScoreBasedOnDifficulty();
+
+                --totalCellsLeft;
+                  
+                if(totalCellsLeft == mineAmnt)//We have won!! Only mines left!!
+                {
+                    calculateScore();                   //calculate total score based on time
+                    txtScore.Text = score.ToString();   //output it in score area
+                    showWinnerMessage();                //show winner msg with play again or save high score option
+                }
             }
+        }
+
+        //Calculates a users total score based on remaining time.
+        private void calculateScore()
+        {
+            score = Convert.ToInt32(txtScore.Text);
+            int iMins = (int)mins;
+            int iSecs = (int)secs;
+            int minsScore = 20 * iMins;
+            int secsScore = 2 * iSecs;
+            score = score + (minsScore + secsScore);
         }
 
         //Checks if any mines are directly adjacent to the cell the user just clicked
@@ -378,8 +412,43 @@ namespace MineSweeper
             return row;
         }
 
+        //Shows the user a congratulations you won message
+       private async void showWinnerMessage()
+       {
+            MessageDialog msgDialog = new MessageDialog("Well done you won, score total is: "+score, "Winner");
+
+            //Add your highscore Button
+            UICommand highscoreBtn = new UICommand("Add Highscore");
+            highscoreBtn.Invoked = highscoreClick;                 //Add event for the okay button
+            msgDialog.Commands.Add(highscoreBtn);
+
+            //play again button
+            UICommand playAgainBtn = new UICommand("Play Again");
+            playAgainBtn.Invoked = playAgainClick;                 //Add event for the okay button
+            msgDialog.Commands.Add(playAgainBtn);
+
+            stopGameTimers();                                         //Stop the games timers
+
+            await msgDialog.ShowAsync();
+        }
+
+        //Event for the play again button
+        private void playAgainClick(IUICommand command)
+        {
+            applyGameDefaults();                                    //Apply default settings, does a refresh
+        }
+
+        //Event for the set high score button
+        private void highscoreClick(IUICommand command)
+        {
+            applyGameDefaults();                                    //Apply default settings, does a refresh
+
+            //Navigate to the scores page
+            this.Frame.Navigate(typeof(Scores));
+        }
+
         //Show message indicating a mine g=hit and end of game
-       private async void showMineHitGameOverMsg()
+        private async void showMineHitGameOverMsg()
         {
             MessageDialog msgDialog = new MessageDialog("You struck a mine - Game Over :(", "Game Over");
 
@@ -388,8 +457,7 @@ namespace MineSweeper
             okBtn.Invoked = OkBtnClick;                 //Add event for the okay button
             msgDialog.Commands.Add(okBtn);
 
-            App.timer.Stop();                                         //Stop the timer
-            App.stopWatch.Stop();                                     //Stop the stopwatch
+            stopGameTimers();                                           //Stop the games timers
 
             await msgDialog.ShowAsync();
         }
@@ -397,13 +465,7 @@ namespace MineSweeper
         //Okay button event for the showMineHitGameOverMsg() message dialog button
         private void OkBtnClick(IUICommand command)
         {
-            App.gameRunning = false;                               //Game is not longer running
-            txtTimer.Text = "0" + ":" + "00";                     //Output zero minutes and seconds
-            txtScore.Text = "0";                                  //Score set back to zero
-            btnChecked.IsChecked = false;                         //User game choice uncheck
-            gameGrid.ColumnDefinitions.Clear();                   //Clear everything in the grid
-            gameGrid.RowDefinitions.Clear();
-            gameGrid.Children.Clear();
+            applyGameDefaults();                                    //Apply default settings, does a refresh
         }
 
         //Checks if any mine number matches the tapped cells number
@@ -498,18 +560,31 @@ namespace MineSweeper
                 //if mins is less than zero and seconds is zero to (outer if) your out of time, game over
                 if (mins < 0)
                 {
-                    App.timer.Stop();                                         //Stop the timer
-                    App.stopWatch.Stop();                                     //Stop the stopwatch
-                    txtTimer.Text = "0" + ":" + "00";                     //Output zero minutes and seconds
-                    txtScore.Text = "0";                                  //Score set back to zero
-                    App.gameRunning = false;                                  //Game is not longer running
-                    btnChecked.IsChecked = false;                         //User game choice uncheck
-                    gameGrid.ColumnDefinitions.Clear();                   //Clear everything in the grid
-                    gameGrid.RowDefinitions.Clear();
-                    gameGrid.Children.Clear();
+                    stopGameTimers();                                       //stop the games timers
+                    applyGameDefaults();                                    //Apply defaults for game start
                     gameOverMessageDisplay();                             //Output a message box stating the games over
                 }
             }
+        }
+
+        //Refreshes the grid, sets game running variable, sets score and time output back to 0
+        private void applyGameDefaults()
+        {
+            txtTimer.Text = "0" + ":" + "00";                     //Output zero minutes and seconds
+            txtScore.Text = "0";                                  //Score set back to zero
+            score = 0;
+            App.gameRunning = false;                                  //Game is not longer running
+            btnChecked.IsChecked = false;                         //User game choice uncheck
+            gameGrid.ColumnDefinitions.Clear();                   //Clear everything in the grid
+            gameGrid.RowDefinitions.Clear();
+            gameGrid.Children.Clear();
+        }
+
+        //Stops the games timers
+        private void stopGameTimers()
+        {
+            App.timer.Stop();                                         //Stop the timer
+            App.stopWatch.Stop();                                     //Stop the stopwatch
         }
 
         //Displays a game over message box with the users score

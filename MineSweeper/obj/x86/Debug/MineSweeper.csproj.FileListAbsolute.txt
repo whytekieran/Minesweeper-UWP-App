@@ -407,3 +407,8 @@ B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\D
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\ProjectArchitectures.txt
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\MineSweeper.csprojResolveAssemblyReference.cache
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\Rules.xbf
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\Rules.g.i.cs
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\Rules.g.cs
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\Rules.xaml
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\Rules.xbf

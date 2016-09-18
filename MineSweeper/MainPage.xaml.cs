@@ -149,5 +149,10 @@ namespace MineSweeper
         {
             this.Frame.Navigate(typeof(Settings));
         }
+
+        private void rulesClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Rules));
+        }
     }
 }

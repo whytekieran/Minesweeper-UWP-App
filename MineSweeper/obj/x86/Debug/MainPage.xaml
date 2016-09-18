@@ -94,6 +94,7 @@
         <AppBar Background="LightGray" IsOpen="false" IsSticky="True">
             <StackPanel Orientation="Horizontal">
                 <AppBarButton x:ConnectionId='12' x:Name="Settings" Label="Settings" Icon="Setting"                      />
+                <AppBarButton x:ConnectionId='13' x:Name="Rules" Label="Game Rules" Icon="Help"                   />
             </StackPanel>
         </AppBar>
     </Page.BottomAppBar>
