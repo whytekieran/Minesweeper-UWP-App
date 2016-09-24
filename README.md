@@ -1,1 +1,1 @@
-# MineSweeper
+# **_MineSweeper Game_**
