@@ -28,13 +28,13 @@
     <AppXManifest Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-09-24T21:07:59.650</Modified>
+      <Modified>2016-09-24T22:11:24.004</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\MineSweeper.exe">
       <PackagePath>entrypoint\MineSweeper.exe</PackagePath>
-      <Modified>2016-09-24T21:07:58.579</Modified>
+      <Modified>2016-09-24T22:11:22.758</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kieran\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -448,14 +448,6 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-07-22T22:11:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\Images\Minesweeper2.jpeg">
-      <PackagePath>Images\Minesweeper2.jpeg</PackagePath>
-      <Modified>2016-09-17T16:25:04.875</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\Images\Minesweeper3.png">
-      <PackagePath>Images\Minesweeper3.png</PackagePath>
-      <Modified>2016-09-17T16:26:53.585</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\Images\Minesweeper6.png">
       <PackagePath>Images\Minesweeper6.png</PackagePath>
       <Modified>2016-09-17T16:34:42.152</Modified>
@@ -512,11 +504,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-09-24T21:07:59.213</Modified>
+      <Modified>2016-09-24T22:11:23.508</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\Core\MineSweeper.exe">
       <PackagePath>MineSweeper.exe</PackagePath>
-      <Modified>2016-09-24T21:07:59.646</Modified>
+      <Modified>2016-09-24T22:11:24.000</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

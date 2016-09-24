@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="MineSweeper.Game"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MineSweeper"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <!--Main Grid-->
+    <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
+        <!--Stackpanels hold the checkboxes that provide the user with grid size options for the game-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center"  
+                        Margin="0,5,0,0">
+                <CheckBox x:ConnectionId='5' x:Name="cbSixGrid" 
+                          FontSize="20" 
+                          Tag="6" 
+                          Content="6 x 6" 
+                          Margin="30,0,0,0" 
+                          FontFamily="Showcard Gothic" 
+                                                  />
+                <CheckBox x:ConnectionId='6' x:Name="cbEightGrid" 
+                          FontSize="20" 
+                          Tag="8" 
+                          Content="8 x 8" 
+                          FontFamily="Showcard Gothic" 
+                                                  />
+                <CheckBox x:ConnectionId='7' x:Name="cbTenGrid" 
+                          FontSize="20" 
+                          Tag="10" 
+                          Content="10 x 10" 
+                          FontFamily="Showcard Gothic" 
+                                                  />
+            </StackPanel>
+            <!--Stackpanel holds two textblocks which output score and time remaining-->
+            <StackPanel Margin="0,5,0,0" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:ConnectionId='3' x:Name="txtTimer" TextAlignment="Center" Width="150" Margin="0,0,5,0" Text=""/>
+                <TextBlock x:ConnectionId='4' x:Name="txtScore" TextAlignment="Center" Width="150" Margin="0,0,0,0" Text=""/>
+            </StackPanel>
+        </StackPanel>
+
+       <!--Empty Grid to hold the game grid, will be created on the fly when user clicks a checkbox option-->
+        <Grid x:ConnectionId='1'  x:Name="gameGrid" 
+               Height="470" 
+               Width="355" 
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Margin="1,20,0,0">
+            <Grid.Background>
+                <SolidColorBrush x:ConnectionId='2' x:Name="mySolidColorBrush" Color="Gray" />
+            </Grid.Background>
+        </Grid>
+    </Grid>
+    <!--App bar at the bottom with Home, settings and rules options. Bar can be opened/closed-->
+    <Page.BottomAppBar>
+        <AppBar Background="LightGray" IsOpen="false" IsSticky="True">
+            <StackPanel Orientation="Horizontal">
+                <AppBarButton x:ConnectionId='8' x:Name="Home" Label="Home" Icon="Home"                  />
+                <AppBarButton x:ConnectionId='9' x:Name="Settings" Label="Settings" Icon="Setting"                      />
+                <AppBarButton x:ConnectionId='10' x:Name="Rules" Label="Game Rules" Icon="Help"                   />
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
+</Page>
+

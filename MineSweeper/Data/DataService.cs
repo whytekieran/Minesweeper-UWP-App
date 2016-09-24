@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace MineSweeper.Data
 {
+    //Score class acts as a basic model to hold score objects
     public class Score
     {
+        //Each high score has a username and score
         private String username;
         private int userScore;
 
@@ -25,13 +27,16 @@ namespace MineSweeper.Data
         }
     }
 
+    //The dataservice class is responsible for communicating with the database, getting and inserting scores for storage
     public class DataService
     {
+        //This variable is set by the view model so we know which table to read from
         public static int choosenTable;
 
         //Fake score data for now until database or cloud service is added.
         public static List<Score> GetScores()
         {
+            //Perfrom a switch depending on user choice made to select a certain high score table
             switch(choosenTable)
             {
                 case 0:
@@ -115,12 +120,14 @@ namespace MineSweeper.Data
             }//end switch
         }//end getScores()
 
-        //all method below will write to some sort of database in the future, either local or on a cloud service
+        //all methods below will write to some sort of database in the future, either local or on a cloud service
         public static void Insert(Score score)
         {
             Debug.WriteLine("INSERT score with username " + score.Username);
         }
 
+        //Commented code below may not be nessesary for this program
+        /*
         public static void Delete(Score score)
         {
             Debug.WriteLine("Delete score with username " + score.Username);
@@ -129,7 +136,7 @@ namespace MineSweeper.Data
         public static void Update(Score score)
         {
             Debug.WriteLine("Update score with username " + score.Username);
-        }
+        }*/
     }
 }
 

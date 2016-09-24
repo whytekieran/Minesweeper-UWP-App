@@ -133,8 +133,6 @@
     <None Include="MineSweeper_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\Minesweeper2.jpeg" />
-    <Content Include="Images\Minesweeper3.png" />
     <Content Include="Images\Minesweeper6.png" />
     <Content Include="Images\Minesweeper7.png" />
     <Content Include="Properties\Default.rd.xml" />

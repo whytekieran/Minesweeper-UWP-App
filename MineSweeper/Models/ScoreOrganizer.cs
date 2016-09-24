@@ -5,17 +5,20 @@ using MineSweeper.Data;
 
 namespace MineSweeper.Models
 {
+    //Class is responsible for speaking to the data class (Score) and the data service which holds database communication
     class ScoreOrganizer
     {
         public List<Score> scores { get; set; }
         public String Name { get; set; }
 
+        //Contructor gets list of scores from the data service depending on user choice made.
         public ScoreOrganizer(int choosenTable)
         {
             DataService.choosenTable = choosenTable;
             scores = DataService.GetScores();
         }
 
+        //Add to scores list, needed by view model and add to the database itself
         public void Add(Score score)
         {
             if (!scores.Contains(score))
@@ -25,6 +28,9 @@ namespace MineSweeper.Models
             }
         }
 
+        //commented code below may not be needed for this program
+        /*
+        //delete from scores list, needed by view model and delete from the database itself
         public void Delete(Score score)
         {
             if (scores.Contains(score))
@@ -42,6 +48,6 @@ namespace MineSweeper.Models
                 //scores.Up(score);
                 DataService.Update(score);
             }
-        }
+        }*/
     }
 }
