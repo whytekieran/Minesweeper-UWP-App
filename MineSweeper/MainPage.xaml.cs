@@ -135,7 +135,7 @@ namespace MineSweeper
         //Click event for scores button that navigates us to the scores page
         private void scoresClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Scores));
+            this.Frame.Navigate(typeof(ScoresMenu));
         }
 
         //Click event for the play button that navigates us to the game page

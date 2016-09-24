@@ -121,7 +121,9 @@ namespace MineSweeper
                     mines = list.OrderBy(_ => rnd.Next()).Take(3).ToArray();
                     //Finds how many mines are in this game
                     mineAmnt = 3;
-                    showMessage(mines);
+
+                    //THIS METHOD IS FOR TESTING ONLY
+                    //showMessage(mines);
                 }
                 else if(gridSize == 8)//if grid is 8 x 8 (64 cells)
                 {
@@ -196,13 +198,18 @@ namespace MineSweeper
             }
         }
 
+      
+        ///////////////////////////////////////////////////////////////////////
+     
         //Used for testing
          private async void showMessage(int [] ary)
          {
              MessageDialog msgbox = new MessageDialog(ary[0].ToString() + " " + ary[1].ToString() + " " + ary[2].ToString());
              await msgbox.ShowAsync();
          }
-
+       
+        //////////////////////////////////////////////////////////////////////////
+      
         //Creates a list with all cell numbers by using gridsize x gridsize
         private void generateRandomMinesList(int gridSize)
         {
@@ -444,7 +451,7 @@ namespace MineSweeper
             applyGameDefaults();                                    //Apply default settings, does a refresh
 
             //Navigate to the scores page
-            this.Frame.Navigate(typeof(Scores));
+            this.Frame.Navigate(typeof(SetHighScore));
         }
 
         //Show message indicating a mine g=hit and end of game

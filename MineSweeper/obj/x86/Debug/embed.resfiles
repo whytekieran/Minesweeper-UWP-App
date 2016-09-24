@@ -2,5 +2,7 @@ App.xbf
 Game.xbf
 MainPage.xbf
 Rules.xbf
-Scores.xbf
+ScoresMenu.xbf
+SetHighScore.xbf
 Settings.xbf
+ViewHighScore.xbf
