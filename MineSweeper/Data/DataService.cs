@@ -27,44 +27,93 @@ namespace MineSweeper.Data
 
     public class DataService
     {
-        public static String gameDifficulty;
+        public static int choosenTable;
 
         //Fake score data for now until database or cloud service is added.
         public static List<Score> GetScores()
         {
-            Debug.WriteLine("GET for user scores.");
-
-            if(gameDifficulty == "Easy")
+            switch(choosenTable)
             {
-                return new List<Score>()
-                {    
-                    //Some fake data good enough for now in local database or cloud service can go here 
-                    new Score() { Username="eChris Cole", UserScore=10 },
-                    new Score() { Username="eKelly Kale", UserScore=32 },
-                    new Score() { Username="eDylan Durbin", UserScore=18 }
-                };
-            }
-            else if(gameDifficulty == "Medium")
-            {
-                return new List<Score>()
-                {
-                    //Some fake data good enough for now in local database or cloud service can go here 
-                    new Score() { Username="mChris Cole", UserScore=10 },
-                    new Score() { Username="mKelly Kale", UserScore=32 },
-                    new Score() { Username="mDylan Durbin", UserScore=18 }
-                };
-            }
-            else
-            {
-                return new List<Score>()
-                {
-                    //Some fake data good enough for now in local database or cloud service can go here 
-                    new Score() { Username="hChris Cole", UserScore=10 },
-                    new Score() { Username="hKelly Kale", UserScore=32 },
-                    new Score() { Username="hDylan Durbin", UserScore=18 }
-                };
-            }
-        }
+                case 0:
+                    return new List<Score>()
+                    {    
+                        //Some fake data good enough for now in local database or cloud service can go here 
+                        new Score() { Username="0Chris Cole", UserScore=10 },
+                        new Score() { Username="0Kelly Kale", UserScore=32 },
+                        new Score() { Username="0Dylan Durbin", UserScore=18 }
+                    };
+                case 1:
+                    return new List<Score>()
+                    {    
+                        //Some fake data good enough for now in local database or cloud service can go here 
+                        new Score() { Username="1Chris Cole", UserScore=10 },
+                        new Score() { Username="1Kelly Kale", UserScore=32 },
+                        new Score() { Username="1Dylan Durbin", UserScore=18 }
+                    };
+                case 2:
+                    return new List<Score>()
+                    {    
+                        //Some fake data good enough for now in local database or cloud service can go here 
+                        new Score() { Username="2Chris Cole", UserScore=10 },
+                        new Score() { Username="2Kelly Kale", UserScore=32 },
+                        new Score() { Username="2Dylan Durbin", UserScore=18 }
+                    };
+                case 3:
+                    return new List<Score>()
+                    {    
+                        //Some fake data good enough for now in local database or cloud service can go here 
+                        new Score() { Username="3Chris Cole", UserScore=10 },
+                        new Score() { Username="3Kelly Kale", UserScore=32 },
+                        new Score() { Username="3Dylan Durbin", UserScore=18 }
+                    };
+                case 4:
+                    return new List<Score>()
+                    {    
+                        //Some fake data good enough for now in local database or cloud service can go here 
+                        new Score() { Username="4Chris Cole", UserScore=10 },
+                        new Score() { Username="4Kelly Kale", UserScore=32 },
+                        new Score() { Username="4Dylan Durbin", UserScore=18 }
+                    };
+                case 5:
+                    return new List<Score>()
+                    {    
+                        //Some fake data good enough for now in local database or cloud service can go here 
+                        new Score() { Username="5Chris Cole", UserScore=10 },
+                        new Score() { Username="5Kelly Kale", UserScore=32 },
+                        new Score() { Username="5Dylan Durbin", UserScore=18 }
+                    };
+                case 6:
+                    return new List<Score>()
+                    {    
+                        //Some fake data good enough for now in local database or cloud service can go here 
+                        new Score() { Username="6Chris Cole", UserScore=10 },
+                        new Score() { Username="6Kelly Kale", UserScore=32 },
+                        new Score() { Username="6Dylan Durbin", UserScore=18 }
+                    };
+                case 7:
+                    return new List<Score>()
+                    {    
+                        //Some fake data good enough for now in local database or cloud service can go here 
+                        new Score() { Username="7Chris Cole", UserScore=10 },
+                        new Score() { Username="7Kelly Kale", UserScore=32 },
+                        new Score() { Username="7Dylan Durbin", UserScore=18 }
+                    };
+                case 8:
+                    return new List<Score>()
+                    {    
+                        //Some fake data good enough for now in local database or cloud service can go here 
+                        new Score() { Username="8Chris Cole", UserScore=10 },
+                        new Score() { Username="8Kelly Kale", UserScore=32 },
+                        new Score() { Username="8Dylan Durbin", UserScore=18 }
+                    };
+                default:
+                    return new List<Score>()
+                    {    
+                        //Some fake data good enough for now in local database or cloud service can go here 
+                        new Score() { Username="Empty", UserScore=0 },
+                    };
+            }//end switch
+        }//end getScores()
 
         //all method below will write to some sort of database in the future, either local or on a cloud service
         public static void Insert(Score score)

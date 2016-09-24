@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using MineSweeper.ViewModels;
+using Windows.Storage;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,16 +24,40 @@ namespace MineSweeper
     /// </summary>
     public sealed partial class ViewHighScore : Page
     {
+        private IndexPasser passedData;
+        private string gamesDifficulty;
+
         public ViewHighScore()
         {
             this.InitializeComponent();
-            ScoreOrganizerVM = new ScoreOrganizerViewModel("Medium");
         }
-       
+
+        //When the page is navigated to
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            //Get information from HighScoresMenu stating which highscores the user wants
+            passedData = e.Parameter as IndexPasser;   
+
+            //Create a ScoreOrganizerViewModel which wraps Score objects inside an Observable Collection of ScoreViewModels
+            //then also manages the Binding between them and our XAML view. Pass the selected index from the user
+            //into the ScoreOrganizerViewModel so the correct table is choosen from the database.
+            ScoreOrganizerVM = new ScoreOrganizerViewModel(passedData.index);
+        }
+
+        //Getter and setter for the ScoreOrganizerViewModel to allow binding
         public ScoreOrganizerViewModel ScoreOrganizerVM
         {
             get;
             set;
+        }
+
+        //gets the games difficulty setting from local storage
+        private string getGameDifficulty()
+        {
+            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+            App.difficulty = (string)localSettings.Values["gameDifficulty"];
+
+            return App.difficulty; //return the difficulty of the game
         }
     }
 }

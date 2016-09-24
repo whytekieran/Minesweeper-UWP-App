@@ -10,9 +10,9 @@ namespace MineSweeper.Models
         public List<Score> scores { get; set; }
         public String Name { get; set; }
 
-        public ScoreOrganizer(String difficulty)
+        public ScoreOrganizer(int choosenTable)
         {
-            DataService.gameDifficulty = difficulty;
+            DataService.choosenTable = choosenTable;
             scores = DataService.GetScores();
         }
 

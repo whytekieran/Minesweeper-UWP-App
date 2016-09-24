@@ -13,9 +13,9 @@ namespace MineSweeper.ViewModels
     {
         ScoreOrganizer organizer;
 
-        public ScoreOrganizerViewModel(String difficulty)
+        public ScoreOrganizerViewModel(int choosenTable)
         {
-            organizer = new ScoreOrganizer(difficulty);
+            organizer = new ScoreOrganizer(choosenTable);
             _SelectedIndex = -1;
            
             foreach (var score in organizer.scores)
