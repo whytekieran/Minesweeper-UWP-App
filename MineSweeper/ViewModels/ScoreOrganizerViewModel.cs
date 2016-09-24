@@ -35,7 +35,7 @@ namespace MineSweeper.ViewModels
             }
         }
 
-        //observable collection list will nofiy if there is a change within it
+        //observable collection list will notify if there is a change within it
         ObservableCollection<ScoreViewModel> _Scores
            = new ObservableCollection<ScoreViewModel>();
 
