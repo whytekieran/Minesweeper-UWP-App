@@ -132,7 +132,7 @@ namespace MineSweeper.MineSweeper_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[9];
+            _typeNameTable = new string[12];
             _typeNameTable[0] = "MineSweeper.Game";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -142,8 +142,11 @@ namespace MineSweeper.MineSweeper_XamlTypeInfo
             _typeNameTable[6] = "MineSweeper.SetHighScore";
             _typeNameTable[7] = "MineSweeper.Settings";
             _typeNameTable[8] = "MineSweeper.ViewHighScore";
+            _typeNameTable[9] = "MineSweeper.ViewModels.ScoreOrganizerViewModel";
+            _typeNameTable[10] = "MineSweeper.ViewModels.VMHelper";
+            _typeNameTable[11] = "Object";
 
-            _typeTable = new global::System.Type[9];
+            _typeTable = new global::System.Type[12];
             _typeTable[0] = typeof(global::MineSweeper.Game);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -153,6 +156,9 @@ namespace MineSweeper.MineSweeper_XamlTypeInfo
             _typeTable[6] = typeof(global::MineSweeper.SetHighScore);
             _typeTable[7] = typeof(global::MineSweeper.Settings);
             _typeTable[8] = typeof(global::MineSweeper.ViewHighScore);
+            _typeTable[9] = typeof(global::MineSweeper.ViewModels.ScoreOrganizerViewModel);
+            _typeTable[10] = typeof(global::MineSweeper.ViewModels.VMHelper);
+            _typeTable[11] = typeof(global::System.Object);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -194,6 +200,7 @@ namespace MineSweeper.MineSweeper_XamlTypeInfo
         private object Activate_6_SetHighScore() { return new global::MineSweeper.SetHighScore(); }
         private object Activate_7_Settings() { return new global::MineSweeper.Settings(); }
         private object Activate_8_ViewHighScore() { return new global::MineSweeper.ViewHighScore(); }
+        private object Activate_10_VMHelper() { return new global::MineSweeper.ViewModels.VMHelper(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -258,19 +265,58 @@ namespace MineSweeper.MineSweeper_XamlTypeInfo
             case 8:   //  MineSweeper.ViewHighScore
                 userType = new global::MineSweeper.MineSweeper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_8_ViewHighScore;
+                userType.AddMemberName("ScoreOrganizerVM");
                 userType.SetIsLocalType();
                 xamlType = userType;
+                break;
+
+            case 9:   //  MineSweeper.ViewModels.ScoreOrganizerViewModel
+                userType = new global::MineSweeper.MineSweeper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MineSweeper.ViewModels.VMHelper"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 10:   //  MineSweeper.ViewModels.VMHelper
+                userType = new global::MineSweeper.MineSweeper_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_10_VMHelper;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 11:   //  Object
+                xamlType = new global::MineSweeper.MineSweeper_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
             return xamlType;
         }
 
 
+        private object get_0_ViewHighScore_ScoreOrganizerVM(object instance)
+        {
+            var that = (global::MineSweeper.ViewHighScore)instance;
+            return that.ScoreOrganizerVM;
+        }
+        private void set_0_ViewHighScore_ScoreOrganizerVM(object instance, object Value)
+        {
+            var that = (global::MineSweeper.ViewHighScore)instance;
+            that.ScoreOrganizerVM = (global::MineSweeper.ViewModels.ScoreOrganizerViewModel)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::MineSweeper.MineSweeper_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::MineSweeper.MineSweeper_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "MineSweeper.ViewHighScore.ScoreOrganizerVM":
+                userType = (global::MineSweeper.MineSweeper_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MineSweeper.ViewHighScore");
+                xamlMember = new global::MineSweeper.MineSweeper_XamlTypeInfo.XamlMember(this, "ScoreOrganizerVM", "MineSweeper.ViewModels.ScoreOrganizerViewModel");
+                xamlMember.Getter = get_0_ViewHighScore_ScoreOrganizerVM;
+                xamlMember.Setter = set_0_ViewHighScore_ScoreOrganizerVM;
+                break;
+            }
             return xamlMember;
         }
     }

@@ -25,7 +25,7 @@ namespace MineSweeper.Data
         }
     }
 
-    class DataService
+    public class DataService
     {
         public static String gameDifficulty;
 

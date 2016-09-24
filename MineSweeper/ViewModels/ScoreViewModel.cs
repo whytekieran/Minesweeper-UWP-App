@@ -3,7 +3,7 @@ using MineSweeper.Data;
 
 namespace MineSweeper.ViewModels
 {
-    class ScoreViewModel : VMHelper<Score>
+    public class ScoreViewModel : VMHelper<Score>
     {
         public ScoreViewModel(Score score = null) : base(score) { }
 

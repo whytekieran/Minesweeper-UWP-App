@@ -6,14 +6,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource AppBarBackgroundThemeBrush}">
+    Background="{ThemeResource AppBarBackgroundThemeBrush}"
+    xmlns:viewModels="using:MineSweeper.ViewModels">
 
     <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}"
           HorizontalAlignment="Center"
           VerticalAlignment="Center">
 
-        <!--This grid contains a listbox which presents the highscore of the game
-        The content of each listbox item is outputted using data binding-->
+        <!--This grid contains a listbox which presents all the highscores of the game
+        The content of each listbox item is outputted using data binding and shows the player name and score-->
         <Grid Margin="5,5,5,5"
                HorizontalAlignment="Center"
                VerticalAlignment="Center">
@@ -21,11 +22,12 @@
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center">
                 <!--Allows the list to be scrolled through-->
-                <ListBox x:Name="highscoresListView"
+                <ListBox x:Name="HighScoreList"
                      VerticalAlignment="Center"
-                     Background="Transparent">
+                     Background="Transparent"
+                     ItemsSource="{x:Bind ScoreOrganizerVM.ScoresCollection, Mode=OneWay}">
                     <!--Here is the item template for the list box item, all listbox items 
-                that are bind here will have this format. Use of basic data binding-->
+                that are bind here will have this format. Use of data binding via the MVVM architecture-->
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
                             <!--Keeps listbox items in the windows center-->
@@ -33,10 +35,11 @@
                         </Style>
                     </ListBox.ItemContainerStyle>
                     <ListBox.ItemTemplate>
-                        <DataTemplate>
+                        <!--Set the type of elements in the list to ScoreViewModel which wraps Score objects-->
+                        <DataTemplate x:DataType="viewModels:ScoreViewModel">
                             <StackPanel VerticalAlignment="Center">
-                                <!--Basic Binding using ruleID instance variable from RulesSetter.cs.cs-->
-                                <TextBlock Text="{Binding ruleID}"
+                                <!--Binding via the MVVM style to output the players Username-->
+                                <TextBlock Text="{x:Bind Username, Mode=OneWay}"
                                            Foreground="#FF6E5858"
                                            TextAlignment="Center"
                                            HorizontalAlignment="Center"
@@ -44,7 +47,8 @@
                                            FontFamily="Showcard Gothic"
                                            FontSize="20">
                                 </TextBlock>
-                                <TextBlock Text="{Binding ruleDescription}"
+                                <!--Binding via the MVVM style to output the players score-->
+                                <TextBlock Text="{x:Bind UserScore, Mode=OneWay}"
                                            Foreground="#FF6E5858"
                                            TextWrapping="Wrap"
                                            TextAlignment="Center"
