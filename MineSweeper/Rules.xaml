@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource AppBarBackgroundThemeBrush}">
 
-    <!--Main grid of the page-->
+    <!--Main Grid-->
     <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}"
           HorizontalAlignment="Center"
           VerticalAlignment="Center">
@@ -60,4 +60,13 @@
             </ScrollViewer>
         </Grid>
     </Grid>
+    <!--App bar at page bottom with home ands settings option. Bar can be opened/closed-->
+    <Page.BottomAppBar>
+        <AppBar Background="LightGray" IsOpen="false" IsSticky="True">
+            <StackPanel Orientation="Horizontal">
+                <AppBarButton x:Name="Home" Label="Home" Icon="Home" Click="homeClick"/>
+                <AppBarButton x:Name="Settings" Label="Settings" Icon="Setting" Click="settingsClick"/>
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
 </Page>

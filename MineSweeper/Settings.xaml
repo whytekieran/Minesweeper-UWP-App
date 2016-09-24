@@ -7,7 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <!--Main Grid-->
     <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
+        <!--Stackpanel holds the title of the page 'Difficulty Settings'-->
         <StackPanel Orientation="Vertical">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
                 <TextBlock Text="Difficulty Settings" 
@@ -16,6 +18,7 @@
                            FontFamily="Showcard Gothic"/>
             </StackPanel>
         </StackPanel>
+        <!--Stackpanel with an image brush background showing a picture of a bomb-->
         <StackPanel HorizontalAlignment="Center" 
                     VerticalAlignment="Center" 
                     Height="310" 
@@ -24,12 +27,16 @@
             <StackPanel.Background>
                 <ImageBrush ImageSource="Images/Minesweeper6.png" />
             </StackPanel.Background>
+            <!--Another Stackpanel directly over the picture with high opacity to allow the picture to show through. This 
+            panel also holds another panel with three radio button that control the games difficulty-->
             <StackPanel Background="{ThemeResource AppBarBackgroundThemeBrush}" 
                         Opacity="0.7" 
                         Height="310">
+                <!--Inner Stackpanel-->
                 <StackPanel 
                     HorizontalAlignment="Center" 
                     Margin="0, 100, 0, 100">
+                    <!--Game difficulty radio buttons-->
                     <RadioButton x:Name="rbEasy" 
                                  Foreground="White" 
                                  FontSize="30"
@@ -57,4 +64,13 @@
             </StackPanel>
         </StackPanel>
     </Grid>
+    <!--App bar at the bottom with rules options. Bar can be opened/closed-->
+    <Page.BottomAppBar>
+        <AppBar Background="LightGray" IsOpen="false" IsSticky="True">
+            <StackPanel Orientation="Horizontal">
+                <AppBarButton x:Name="Home" Label="Home" Icon="Home" Click="homeClick"/>
+                <AppBarButton x:Name="Rules" Label="Game Rules" Icon="Help" Click="rulesClick"/>
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
 </Page>

@@ -5,25 +5,26 @@ namespace MineSweeper
 {
     public sealed partial class Rules : Page
     {
-        List<RulesSetter> rulesList;                       //List of GameType objects to hold high score menu options
+        List<RulesSetter> rulesList;                       //List of RuleSetter objects to hold rules for list box view
 
         public Rules()
         {
             this.InitializeComponent();
 
-            createRulesList();
+            createRulesList();                                //Adds rules to the RulesSetter list
             rulesListView.ItemsSource = rulesList;            //Make list of rules the item source for the list on the rules page
         }
 
         private void createRulesList()
         {
-            RulesSetter rule;
+            RulesSetter rule;                               //RulesSetter object
 
-            if (rulesList == null)                       //Instantiate list of GameTypes if it hasnt been already
+            if (rulesList == null)                          //Instantiate list of RuleSetters if it hasnt been already
             {
-                rulesList = new List<RulesSetter>();            //Instantiate done here
+                rulesList = new List<RulesSetter>();        //Instantiate done here
             }
 
+            //Instantiate RuleSetter object, give data and add to the list. Do this for each rule
             rule = new RulesSetter();
             rule.ruleID = "Rule 1";
             rule.ruleDescription = "The objective of the game is to clear all grid cells that dont have a mine before the time "+
@@ -72,8 +73,19 @@ namespace MineSweeper
             rule = new RulesSetter();
             rule.ruleID = "Thats Everything";
             rule.ruleDescription = "Enjoy the game";
-                                  
             rulesList.Add(rule);
+        }
+
+        //Click event to bring us to the setting page
+        private void settingsClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Settings));
+        }
+
+        //Click event to bring us to the main page (home)
+        private void homeClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

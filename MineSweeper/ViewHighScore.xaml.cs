@@ -24,8 +24,7 @@ namespace MineSweeper
     /// </summary>
     public sealed partial class ViewHighScore : Page
     {
-        private IndexPasser passedData;
-        private string gamesDifficulty;
+        private IndexPasser passedData; //Index passer to get the selected index from the high score menu page
 
         public ViewHighScore()
         {
@@ -58,6 +57,24 @@ namespace MineSweeper
             App.difficulty = (string)localSettings.Values["gameDifficulty"];
 
             return App.difficulty; //return the difficulty of the game
+        }
+
+        //Click event takes us to the Settings page
+        private void settingsClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Settings));
+        }
+
+        //Click event takes us to the Rules page
+        private void rulesClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Rules));
+        }
+
+        //Click event takes us to the Main page (home)
+        private void homeClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

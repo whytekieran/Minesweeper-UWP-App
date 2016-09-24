@@ -9,15 +9,16 @@
     Background="{ThemeResource AppBarBackgroundThemeBrush}"
     xmlns:viewModels="using:MineSweeper.ViewModels">
 
+    <!--Main Grid-->
     <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}"
           HorizontalAlignment="Center"
           VerticalAlignment="Center">
-
         <!--This grid contains a listbox which presents all the highscores of the game
         The content of each listbox item is outputted using data binding and shows the player name and score-->
         <Grid Margin="5,5,5,5"
                HorizontalAlignment="Center"
                VerticalAlignment="Center">
+            <!--Scrollview to allow us to scroll over the high scores-->
             <ScrollViewer
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center">
@@ -63,6 +64,15 @@
                 </ListBox>
             </ScrollViewer>
         </Grid>
-
     </Grid>
+    <!--App bar at the bottom with settings and rules options. Bar can be opened/closed-->
+    <Page.BottomAppBar>
+        <AppBar Background="LightGray" IsOpen="false" IsSticky="True">
+            <StackPanel Orientation="Horizontal">
+                <AppBarButton x:Name="Home" Label="Home" Icon="Home" Click="homeClick"/>
+                <AppBarButton x:Name="Settings" Label="Settings" Icon="Setting" Click="settingsClick"/>
+                <AppBarButton x:Name="Rules" Label="Game Rules" Icon="Help" Click="rulesClick"/>
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
 </Page>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MineSweeper
 {
+    //Basic class used to hold the high score option menu choices
     class HighScoreType
     {
         public string userScoreChoice { get; set; }

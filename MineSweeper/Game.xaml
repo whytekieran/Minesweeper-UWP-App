@@ -7,8 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <!--Main Grid-->
     <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
-
+        <!--Stackpanels hold the checkboxes that provide the user with grid size options for the game-->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" 
                         VerticalAlignment="Center" 
@@ -34,12 +35,14 @@
                           FontFamily="Showcard Gothic" 
                           Checked="startMineGame" />
             </StackPanel>
+            <!--Stackpanel holds two textblocks which output score and time remaining-->
             <StackPanel Margin="0,5,0,0" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock x:Name="txtTimer" TextAlignment="Center" Width="150" Margin="0,0,5,0" Text=""/>
                 <TextBlock x:Name="txtScore" TextAlignment="Center" Width="150" Margin="0,0,0,0" Text=""/>
             </StackPanel>
         </StackPanel>
 
+       <!--Empty Grid to hold the game grid, will be created on the fly when user clicks a checkbox option-->
         <Grid  x:Name="gameGrid" 
                Height="470" 
                Width="355" 
@@ -50,12 +53,14 @@
                 <SolidColorBrush x:Name="mySolidColorBrush" Color="Gray" />
             </Grid.Background>
         </Grid>
-
     </Grid>
+    <!--App bar at the bottom with Home, settings and rules options. Bar can be opened/closed-->
     <Page.BottomAppBar>
         <AppBar Background="LightGray" IsOpen="false" IsSticky="True">
             <StackPanel Orientation="Horizontal">
+                <AppBarButton x:Name="Home" Label="Home" Icon="Home" Click="homeClick"/>
                 <AppBarButton x:Name="Settings" Label="Settings" Icon="Setting" Click="settingsClick"/>
+                <AppBarButton x:Name="Rules" Label="Game Rules" Icon="Help" Click="rulesClick"/>
             </StackPanel>
         </AppBar>
     </Page.BottomAppBar>

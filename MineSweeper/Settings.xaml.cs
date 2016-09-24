@@ -31,6 +31,7 @@ namespace MineSweeper
             checkCurrentSettingRadioButton();
         }
 
+        //sets the radio button to the current game difficulty
         private void checkCurrentSettingRadioButton()
         {
             //Get local settings
@@ -68,6 +69,18 @@ namespace MineSweeper
         {
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["gameDifficulty"] = difficulty;
+        }
+
+        //Click event takes us to the Rules page
+        private void rulesClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Rules));
+        }
+
+        //Click event takes us to the main page (home)
+        private void homeClick(object sender, RoutedEventArgs e)
+        {
+           this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

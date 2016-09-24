@@ -19,27 +19,27 @@ namespace MineSweeper
 {
     public sealed partial class ScoresMenu : Page
     {
-        List<HighScoreType> highscoreOptions;                       //List of GameType objects to hold high score menu options
+        List<HighScoreType> highscoreOptions;                       //List of HighScoreType objects to hold high score menu options
         int selectedIndex;                                     //An int to hold the index of the listbox item selected by the user
 
         public ScoresMenu()
         {
             this.InitializeComponent();
 
-            createScoreOptionList();
-            highscoreOptionsList.ItemsSource = highscoreOptions;            //Make list of GameTypes the item source for the list highscores page
+            createScoreOptionList();                                        //Create the score option list
+            highscoreOptionsList.ItemsSource = highscoreOptions;            //Make list of Highscore options the item source for the list highscores menu page
         }
 
         private void createScoreOptionList()
         {
-            HighScoreType option;                                        //Declare GameType object
+            HighScoreType option;                                        //Declare HighScoreType object
 
-            if (highscoreOptions == null)                       //Instantiate list of GameTypes if it hasnt been already
+            if (highscoreOptions == null)                       //Instantiate list of HighScoreTypes if it hasnt been already
             {
                 highscoreOptions = new List<HighScoreType>();            //Instantiate done here
             }
 
-            //We then instantiate the single GameType object, give its instance variable
+            //We then instantiate the single HighScoreTypes object, give its instance variable
             //(which is the variable we are binding) a value and add the 
             //object to the list
             option = new HighScoreType();
@@ -88,6 +88,24 @@ namespace MineSweeper
 
             //Go to HighScores.xaml and pass the users choice using the IndexPasser.cs class
             Frame.Navigate(typeof(ViewHighScore), new IndexPasser { index = selectedIndex });
+        }
+
+        //Click event that takes us to the setting page
+        private void settingsClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Settings));
+        }
+
+        //Click event that takes us to the rules page
+        private void rulesClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Rules));
+        }
+
+        //Click event that takes us to the MainPage (Home) page
+        private void homeClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

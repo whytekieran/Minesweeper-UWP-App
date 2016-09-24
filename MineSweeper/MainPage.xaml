@@ -7,7 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <!--Main Grid-->
     <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
+        <!--Changes view slightly when rotated-->
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
                 <VisualState x:Name="Portrait6"/>
@@ -26,6 +28,7 @@
         </VisualStateManager.VisualStateGroups>
 
 
+        <!--Outputs the Title-->
         <StackPanel x:Name="TitlePanel" 
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Top">
@@ -38,6 +41,7 @@
                        FontFamily="Showcard Gothic" />
         </StackPanel>
 
+        <!--Outputs the pages Images here-->
         <StackPanel x:Name="ImagePanel"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center">
@@ -47,6 +51,7 @@
                    Width="300" />
         </StackPanel>
 
+        <!--Stackpanel to hold the buttons for Play, Score and Exit-->
         <StackPanel x:Name="stackPanel" HorizontalAlignment="Center" 
                     VerticalAlignment="Bottom"
                     Orientation="Horizontal"
@@ -57,6 +62,7 @@
                 <CompositeTransform/>
             </StackPanel.RenderTransform>
 
+            <!--Buttons-->
             <Button x:Name="btnPlay" 
                     Content="Play" 
                     Width="94" 
@@ -90,6 +96,7 @@
                     Click="exitClick"/>
         </StackPanel>
     </Grid>
+    <!--App bar at the bottom with settings and rules options. Bar can be opened/closed-->
     <Page.BottomAppBar>
         <AppBar Background="LightGray" IsOpen="false" IsSticky="True">
             <StackPanel Orientation="Horizontal">

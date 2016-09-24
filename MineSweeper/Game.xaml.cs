@@ -24,9 +24,6 @@ using Windows.UI.Xaml.Shapes;
 
 namespace MineSweeper
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class Game : Page
     {
         private long mins;                                      //Holds the minutes of the timer
@@ -37,11 +34,11 @@ namespace MineSweeper
         private int[] mines;                                    //Holds the mine locations
         Rectangle tappedCell;                                   //Holds the currently tapped rectangle
         private int gridSize;                                   //Holds the grid size, hence the amount of mines we need 
-        private int totalCellsLeft;                         //Holds how many cells are in the grid. taken from after each tap event   
+        private int totalCellsLeft;                             //Holds how many cells are in the grid. taken from after each tap event   
         private int mineAmnt;                                   //Holds how many mines are in the game
+        private List<int> list;                    //Holds the number of every cell in the grid, only some are choosen to be mines
 
-        private List<int> list;
-
+        //Constructor
         public Game()
         {
             this.InitializeComponent();
@@ -60,7 +57,6 @@ namespace MineSweeper
             this.Frame.Navigate(typeof(Settings));
         }
 
-
         //Checkbox checked event to start the minesweeper game
         private void startMineGame(object sender, RoutedEventArgs e)
         {
@@ -76,14 +72,14 @@ namespace MineSweeper
                                            Convert.ToInt32(btnChecked.Content.ToString().IndexOf(" "))));
                 totalCellsLeft = gridSize * gridSize; //Set the total cell amount of the grid.
 
-                createGamesGrid(gridSize);
+                createGamesGrid(gridSize);                              //Create the grid for the game
                 startTimer();                                           //Start the games timer
 
             }
             else //if a game is running output an appropriate message and uncheck the new radio button
             {
                 CheckBox btnChecked = (CheckBox)sender;
-                btnChecked.IsChecked = false;
+                btnChecked.IsChecked = false;               //Uncheck radio button that was checked
                 
                 gameRunningMessageDisplay();
             }
@@ -101,7 +97,7 @@ namespace MineSweeper
                 gameGrid.ColumnDefinitions.Add(new ColumnDefinition());
             }
 
-            createClickableCells(gridSize);         //creates clickable area in each cell using a rectangle
+            createClickableCells(gridSize);         //creates clickable area in each cell using a rectangle in each cell
             setMineLocations(gridSize);             //Generates mines and their locations on the grid
         }
 
@@ -210,7 +206,7 @@ namespace MineSweeper
        
         //////////////////////////////////////////////////////////////////////////
       
-        //Creates a list with all cell numbers by using gridsize x gridsize
+        //Creates a list with all the cell numbers by using gridsize x gridsize
         private void generateRandomMinesList(int gridSize)
         {
             list = new List<int>(gridSize * gridSize);
@@ -218,7 +214,7 @@ namespace MineSweeper
 
             for (int i = 1; i <= cellAmount; i++)
             {
-                list.Add(i); //Create a list with 0-26
+                list.Add(i); //Create a list with each element as a cell number
             }
         }
 
@@ -230,21 +226,21 @@ namespace MineSweeper
             //Add rectangle (cell) to each of the grid squares with light grey colour to give cells a background and also to give us
             //something clickable (rectangle) inside each cell. Make them a little smaller
             Rectangle gridCell;
-            for (cols = 0; cols < gridSize; cols++)
+            for (cols = 0; cols < gridSize; cols++)//Column loop
             {
-                for (rows = 0; rows < gridSize; rows++)
+                for (rows = 0; rows < gridSize; rows++)//Inner row loop
                 {
-                    gridCell = new Rectangle();
-                    gridCell.Name = "r" + cols.ToString() + "_" + rows.ToString(); // r0_0
-                    gridCell.Width = (gameGrid.Width / gridSize) - 4;
+                    gridCell = new Rectangle();                                         //make a rectangle for the grid cell
+                    gridCell.Name = "r" + cols.ToString() + "_" + rows.ToString();      // give it a name
+                    gridCell.Width = (gameGrid.Width / gridSize) - 4;              //Width and height of rectangle            
                     gridCell.Height = (gameGrid.Height / gridSize) - 4;
-                    gridCell.HorizontalAlignment = HorizontalAlignment.Center;
+                    gridCell.HorizontalAlignment = HorizontalAlignment.Center;  //Centre it in the cell
                     gridCell.VerticalAlignment = VerticalAlignment.Center;
-                    gridCell.SetValue(Grid.RowProperty, rows);
+                    gridCell.SetValue(Grid.RowProperty, rows);                  //Set its cell positon
                     gridCell.SetValue(Grid.ColumnProperty, cols);
                     gridCell.Fill = new SolidColorBrush(Colors.LightGray);
                     gridCell.Tapped += MyR_Tapped;                          //Tapped event for each of the cells
-                    gameGrid.Children.Add(gridCell);
+                    gameGrid.Children.Add(gridCell);                        //Add it to the grid
                 }
             }
         }
@@ -301,8 +297,8 @@ namespace MineSweeper
             score = Convert.ToInt32(txtScore.Text);
             int iMins = (int)mins;
             int iSecs = (int)secs;
-            int minsScore = 20 * iMins;
-            int secsScore = 2 * iSecs;
+            int minsScore = 30 * iMins;//30 Points for each minute left
+            int secsScore = 2 * iSecs;//2 points for every second left
             score = score + (minsScore + secsScore);
         }
 
@@ -312,9 +308,10 @@ namespace MineSweeper
             int tappedNumber;
             bool mineFound = false;
 
+            //Start with row above cell clicked, the same row, lastly the row below it.
             for (int i = (row - 1); i <= (row + 1); ++i)
             {
-                if(mineFound == true)//If a mine has alread been found break the outer loop
+                if(mineFound == true)//If a mine has already been found break the outer loop
                 {
                     break;
                 }
@@ -327,7 +324,7 @@ namespace MineSweeper
                     }
                     else
                     {
-                        if(i == row && j == column)//dont check the grid user tapped for a mine
+                        if(i == row && j == column)//dont check the grid user just tapped for a mine
                         {
                             continue;
                         }
@@ -351,11 +348,11 @@ namespace MineSweeper
                 }//End inner loop
             }//End outer loop
 
-            return mineFound;
+            return mineFound;//return result stating if a mine was found adjacent to the clicked cell
 
         }//End method
 
-        //Increments the players score
+        //Increments the players score based on how difficult the game is
         private void incrementScoreBasedOnDifficulty()
         {
             difficulty = getGameDifficulty();
@@ -373,7 +370,7 @@ namespace MineSweeper
                 score += 9;
             }
 
-            txtScore.Text = score.ToString();
+            txtScore.Text = score.ToString();//Set the score in the textblock
         }
 
         //Method to show all the mines as red rectangles
@@ -386,7 +383,7 @@ namespace MineSweeper
             for(int i = 0; i < mines.Count(); ++i)//Loop over the mine location array
             {
                 mineCell = new Rectangle();                     //Create rectangle
-                row = convertTo2DRow(mines[i]);                 //Use location number to get grids row
+                row = convertTo2DRow(mines[i]);                 //Use mine location number in mines to get grids row
                 col = convertTo2DCol(mines[i]);                 //Use location number to get grid column
                 mineCell.SetValue(Grid.RowProperty, row);       //Set rectangle to the row and col values
                 mineCell.SetValue(Grid.ColumnProperty, col);
@@ -419,9 +416,10 @@ namespace MineSweeper
             return row;
         }
 
-        //Shows the user a congratulations you won message
+       //Shows the user a congratulations you won message, async method runs in separate thread, so it wont slow UI
        private async void showWinnerMessage()
        {
+            //Create a message dialong
             MessageDialog msgDialog = new MessageDialog("Well done you won, score total is: "+score, "Winner");
 
             //Add your highscore Button
@@ -637,6 +635,16 @@ namespace MineSweeper
             App.difficulty = (string)localSettings.Values["gameDifficulty"];
 
             return App.difficulty; //return the difficulty of the game
+        }
+
+        private void rulesClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Rules));
+        }
+
+        private void homeClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

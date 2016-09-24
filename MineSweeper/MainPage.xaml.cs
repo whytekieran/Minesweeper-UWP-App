@@ -150,6 +150,7 @@ namespace MineSweeper
             this.Frame.Navigate(typeof(Settings));
         }
 
+        //Click event to bring us to the rules page
         private void rulesClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Rules));
