@@ -1,4 +1,5 @@
-﻿using MineSweeper.Models;
+﻿using MineSweeper.Data;
+using MineSweeper.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,6 +20,7 @@ namespace MineSweeper.ViewModels
     public class ScoreOrganizerViewModel : VMHelper
     {
         ScoreOrganizer organizer;
+        ScoreGeneric scoreGeneric;
 
         //Contructor takes index of selected user option
         public ScoreOrganizerViewModel(int choosenTable)
@@ -26,24 +28,25 @@ namespace MineSweeper.ViewModels
             //Create ScoreOrganizer which will create a list of scores based on that choice
             organizer = new ScoreOrganizer(choosenTable);
             //_SelectedIndex = -1;
-           
+
             foreach (var score in organizer.scores)//access the list and loop over it (score objects)
             {
-                var newScore = new ScoreViewModel(score);                   //add each score object to a new ScoreViewModel
+                scoreGeneric = (ScoreGeneric)score;                               //Cast generic object to score object type
+                var newScore = new ScoreGenericViewModel(scoreGeneric);           //add each score object to a new ScoreGenericViewModel
                 //newScore.PropertyChanged += Person_OnNotifyPropertyChanged; //add event handler for property changes
-                _Scores.Add(newScore);  //add ScoreViewModel to observable collection list
+                scoresList.Add(newScore);
             }
         }
 
-        //observable collection list will notify if there is a change within it
-        ObservableCollection<ScoreViewModel> _Scores
-           = new ObservableCollection<ScoreViewModel>();
+        //Observable collections for each view model
+        ObservableCollection<ScoreGenericViewModel> scoresList
+           = new ObservableCollection<ScoreGenericViewModel>();
 
         //getters/setter for the list
-        public ObservableCollection<ScoreViewModel> ScoresCollection
+        public ObservableCollection<ScoreGenericViewModel> ScoresCollection
         {
-            get { return _Scores; }
-            set { SetProperty(ref _Scores, value); }
+            get { return scoresList; }
+            set { SetProperty(ref scoresList, value); }
         }
 
         /*
@@ -70,29 +73,29 @@ namespace MineSweeper.ViewModels
 
         public void Add()
         {
-            var score = new ScoreViewModel();
+            var score = new ScoreGenericViewModel();
             //score.PropertyChanged += Person_OnNotifyPropertyChanged;
             ScoresCollection.Add(score);
             organizer.Add(score);
             //SelectedIndex = ScoresCollection.IndexOf(score);
         }
 
-       /* public void Delete()
-        {
-            if (SelectedIndex != -1)
-            {
-                var score = ScoresCollection[SelectedIndex];
-                ScoresCollection.RemoveAt(SelectedIndex);
-                organizer.Delete(score);
-            }
-        }*/
+        /* public void Delete()
+         {
+             if (SelectedIndex != -1)
+             {
+                 var score = ScoresCollection[SelectedIndex];
+                 ScoresCollection.RemoveAt(SelectedIndex);
+                 organizer.Delete(score);
+             }
+         }*/
 
-            /*
-        //may not be nessesary for this program
-        void Person_OnNotifyPropertyChanged(Object sender, PropertyChangedEventArgs e)
-        {
-            organizer.Update((ScoreViewModel)sender);
-        }
-        */
+        /*
+    //may not be nessesary for this program
+    void Person_OnNotifyPropertyChanged(Object sender, PropertyChangedEventArgs e)
+    {
+        organizer.Update((ScoreViewModel)sender);
+    }
+    */
     }
 }

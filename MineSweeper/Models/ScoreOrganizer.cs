@@ -8,8 +8,7 @@ namespace MineSweeper.Models
     //Class is responsible for speaking to the data class (Score) and the data service which holds database communication
     class ScoreOrganizer
     {
-        public List<Score> scores { get; set; }
-        public String Name { get; set; }
+        public List<ScoreGeneric> scores { get; set; }
 
         //Contructor gets list of scores from the data service depending on user choice made.
         public ScoreOrganizer(int choosenTable)
@@ -19,7 +18,7 @@ namespace MineSweeper.Models
         }
 
         //Add to scores list, needed by view model and add to the database itself
-        public void Add(Score score)
+        public void Add(ScoreGeneric score)
         {
             if (!scores.Contains(score))
             {

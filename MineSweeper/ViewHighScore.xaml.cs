@@ -35,7 +35,7 @@ namespace MineSweeper
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             //Get information from HighScoresMenu stating which highscores the user wants
-            passedData = e.Parameter as IndexPasser;   
+            passedData = e.Parameter as IndexPasser;
 
             //Create a ScoreOrganizerViewModel which wraps Score objects inside an Observable Collection of ScoreViewModels
             //then also manages the Binding between them and our XAML view. Pass the selected index from the user

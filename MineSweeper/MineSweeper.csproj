@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\DataClasses.cs" />
     <Compile Include="Data\DataService.cs" />
     <Compile Include="Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
@@ -122,8 +123,8 @@
     <Compile Include="ViewHighScore.xaml.cs">
       <DependentUpon>ViewHighScore.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ScoreGenericViewModel.cs" />
     <Compile Include="ViewModels\ScoreOrganizerViewModel.cs" />
-    <Compile Include="ViewModels\ScoreViewModel.cs" />
     <Compile Include="ViewModels\VMHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,7 +179,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <SDKReference Include="Microsoft.VCLibs, Version=14.0">
+      <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
+    </SDKReference>
+    <SDKReference Include="SQLite.UWP.2015, Version=3.14.1">
+      <Name>SQLite for Universal Windows Platform</Name>
+    </SDKReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

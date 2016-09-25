@@ -1,127 +1,73 @@
-﻿using System;
+﻿using SQLite.Net;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MineSweeper.Data
 {
-    //Score class acts as a basic model to hold score objects
-    public class Score
-    {
-        //Each high score has a username and score
-        private String username;
-        private int userScore;
-
-        public String Username
-        {
-            get { return username; }
-            set { username = value; }
-        }
-
-        public int UserScore
-        {
-            get { return userScore; }
-            set { userScore = value; }
-        }
-    }
-
     //The dataservice class is responsible for communicating with the database, getting and inserting scores for storage
     public class DataService
     {
-        //This variable is set by the view model so we know which table to read from
-        public static int choosenTable;
+        public static int choosenTable;         //This variable is set by the view model so we know which table to read from
+        private static SQLiteConnection con;           //Connection object for SQLite database
+        private static string path;                    //The path of the database in the file system
+        private static List<ScoreGeneric> results;
 
         //Fake score data for now until database or cloud service is added.
-        public static List<Score> GetScores()
+        public static List<ScoreGeneric> GetScores()
         {
+            path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Minesweeper.sqlite");
+            con = new SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
+            Debug.WriteLine(path);
+
             //Perfrom a switch depending on user choice made to select a certain high score table
-            switch(choosenTable)
+            switch (choosenTable)
             {
                 case 0:
-                    return new List<Score>()
-                    {    
-                        //Some fake data good enough for now in local database or cloud service can go here 
-                        new Score() { Username="0Chris Cole", UserScore=10 },
-                        new Score() { Username="0Kelly Kale", UserScore=32 },
-                        new Score() { Username="0Dylan Durbin", UserScore=18 }
-                    };
+                    con.CreateTable<EScore6>();//creates a table called 'EScore6'
+                    results = con.Query<ScoreGeneric>("select * from EScore6").ToList<ScoreGeneric>();
+                    break;
                 case 1:
-                    return new List<Score>()
-                    {    
-                        //Some fake data good enough for now in local database or cloud service can go here 
-                        new Score() { Username="1Chris Cole", UserScore=10 },
-                        new Score() { Username="1Kelly Kale", UserScore=32 },
-                        new Score() { Username="1Dylan Durbin", UserScore=18 }
-                    };
+                    con.CreateTable<EScore8>();//creates a table called 'EScore8'
+                    results = con.Query<ScoreGeneric>("select * from EScore8").ToList<ScoreGeneric>();
+                    break;
                 case 2:
-                    return new List<Score>()
-                    {    
-                        //Some fake data good enough for now in local database or cloud service can go here 
-                        new Score() { Username="2Chris Cole", UserScore=10 },
-                        new Score() { Username="2Kelly Kale", UserScore=32 },
-                        new Score() { Username="2Dylan Durbin", UserScore=18 }
-                    };
+                    con.CreateTable<EScore10>();//creates a table called 'EScore10'
+                    results = con.Query<ScoreGeneric>("select * from EScore10").ToList<ScoreGeneric>();
+                    break;
                 case 3:
-                    return new List<Score>()
-                    {    
-                        //Some fake data good enough for now in local database or cloud service can go here 
-                        new Score() { Username="3Chris Cole", UserScore=10 },
-                        new Score() { Username="3Kelly Kale", UserScore=32 },
-                        new Score() { Username="3Dylan Durbin", UserScore=18 }
-                    };
+                    con.CreateTable<MScore6>();//creates a table called 'MScore6'
+                    results = con.Query<ScoreGeneric>("select * from MScore6").ToList<ScoreGeneric>();
+                    break;
                 case 4:
-                    return new List<Score>()
-                    {    
-                        //Some fake data good enough for now in local database or cloud service can go here 
-                        new Score() { Username="4Chris Cole", UserScore=10 },
-                        new Score() { Username="4Kelly Kale", UserScore=32 },
-                        new Score() { Username="4Dylan Durbin", UserScore=18 }
-                    };
+                    con.CreateTable<MScore8>();//creates a table called 'MScore8'
+                    results = con.Query<ScoreGeneric>("select * from MScore8").ToList<ScoreGeneric>();
+                    break;
                 case 5:
-                    return new List<Score>()
-                    {    
-                        //Some fake data good enough for now in local database or cloud service can go here 
-                        new Score() { Username="5Chris Cole", UserScore=10 },
-                        new Score() { Username="5Kelly Kale", UserScore=32 },
-                        new Score() { Username="5Dylan Durbin", UserScore=18 }
-                    };
+                    con.CreateTable<MScore10>();//creates a table called 'MScore10'
+                    results = con.Query<ScoreGeneric>("select * from MScore10").ToList<ScoreGeneric>();
+                    break;
                 case 6:
-                    return new List<Score>()
-                    {    
-                        //Some fake data good enough for now in local database or cloud service can go here 
-                        new Score() { Username="6Chris Cole", UserScore=10 },
-                        new Score() { Username="6Kelly Kale", UserScore=32 },
-                        new Score() { Username="6Dylan Durbin", UserScore=18 }
-                    };
+                    con.CreateTable<HScore6>();//creates a table called 'HScore6'
+                    results = con.Query<ScoreGeneric>("select * from HScore6").ToList<ScoreGeneric>();
+                    break;
                 case 7:
-                    return new List<Score>()
-                    {    
-                        //Some fake data good enough for now in local database or cloud service can go here 
-                        new Score() { Username="7Chris Cole", UserScore=10 },
-                        new Score() { Username="7Kelly Kale", UserScore=32 },
-                        new Score() { Username="7Dylan Durbin", UserScore=18 }
-                    };
+                    con.CreateTable<HScore8>();//creates a table called 'HScore8'
+                    results = con.Query<ScoreGeneric>("select * from HScore8").ToList<ScoreGeneric>();
+                    break;
                 case 8:
-                    return new List<Score>()
-                    {    
-                        //Some fake data good enough for now in local database or cloud service can go here 
-                        new Score() { Username="8Chris Cole", UserScore=10 },
-                        new Score() { Username="8Kelly Kale", UserScore=32 },
-                        new Score() { Username="8Dylan Durbin", UserScore=18 }
-                    };
-                default:
-                    return new List<Score>()
-                    {    
-                        //Some fake data good enough for now in local database or cloud service can go here 
-                        new Score() { Username="Empty", UserScore=0 },
-                    };
+                    con.CreateTable<HScore10>();//creates a table called 'HScore10'
+                    results = con.Query<ScoreGeneric>("select * from HScore10").ToList<ScoreGeneric>();
+                    break;
             }//end switch
+
+            return results;         //return the querys results
+
         }//end getScores()
 
         //all methods below will write to some sort of database in the future, either local or on a cloud service
-        public static void Insert(Score score)
+        public static void Insert(ScoreGeneric score)
         {
             Debug.WriteLine("INSERT score with username " + score.Username);
         }

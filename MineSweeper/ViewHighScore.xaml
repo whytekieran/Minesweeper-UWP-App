@@ -37,7 +37,7 @@
                     </ListBox.ItemContainerStyle>
                     <ListBox.ItemTemplate>
                         <!--Set the type of elements in the list to ScoreViewModel which wraps Score objects-->
-                        <DataTemplate x:DataType="viewModels:ScoreViewModel">
+                        <DataTemplate x:DataType="viewModels:ScoreGenericViewModel">
                             <StackPanel VerticalAlignment="Center">
                                 <!--Binding via the MVVM style to output the players Username-->
                                 <TextBlock Text="{x:Bind Username, Mode=OneWay}"
