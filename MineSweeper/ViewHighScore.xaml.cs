@@ -15,13 +15,8 @@ using Windows.UI.Xaml.Navigation;
 using MineSweeper.ViewModels;
 using Windows.Storage;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace MineSweeper
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class ViewHighScore : Page
     {
         private IndexPasser passedData; //Index passer to get the selected index from the high score menu page

@@ -9,7 +9,9 @@
     Background="{ThemeResource AppBarBackgroundThemeBrush}"
     xmlns:viewModels="using:MineSweeper.ViewModels">
 
+    <!--Main Grid-->
     <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
+        <!--StackPanel with Textblock to display a title at the top of the page-->
         <StackPanel x:Name="TitlePanel" 
                     VerticalAlignment="Top" 
                     HorizontalAlignment="Center">
@@ -20,6 +22,8 @@
                        FontSize="30" 
                        FontFamily="Showcard Gothic" />
         </StackPanel>
+        <!--StackPanel below the one used for the title used for the player to input his/her title. The score is shown
+        also as its passed from the Game.xaml.cs page but it cant be edited-->
         <StackPanel x:Name="InputPanel" 
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center" 
@@ -43,6 +47,7 @@
                      TextWrapping="Wrap" 
                      Text=""
                      Margin="0,0,0,15"/>
+            <!--Button to submit the players high score-->
             <Button x:Name="btnSubmitScore" 
                     Content="Add Score" 
                     Background="White" 

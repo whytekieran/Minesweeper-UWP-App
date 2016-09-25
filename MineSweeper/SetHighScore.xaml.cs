@@ -8,17 +8,12 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using MineSweeper.Data;
 using MineSweeper.ViewModels;
 using Windows.UI;
 using Windows.Storage;
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace MineSweeper
 {
@@ -27,6 +22,8 @@ namespace MineSweeper
     /// </summary>
     public sealed partial class SetHighScore : Page
     {
+        //Game details passer to retrieve needed data from the previous page and a score organizer view model to
+        //communicate with the database
         private GameDetailsPasser gameDetails;
         private ScoreOrganizerViewModel scoreOrganizerVM;
 
@@ -35,6 +32,8 @@ namespace MineSweeper
             this.InitializeComponent();
         }
 
+        //When this page is navigated to we get the nessesary details needed for submitting a score from the previous page.
+        //Output the players score in a textblock and instantiate the ScoreOrganizerViewModel
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             gameDetails = e.Parameter as GameDetailsPasser;
@@ -42,24 +41,28 @@ namespace MineSweeper
             scoreOrganizerVM = new ScoreOrganizerViewModel();
         }
 
+        //When the user clicks the submit score button, click event here fires
         private void submitScoreClick(object sender, RoutedEventArgs e)
         {
-            string username = txtUser.Text;
-            string difficulty = getGameDifficulty();
-            int gridSize = gameDetails.gridSize;
-            int score = gameDetails.score;
+            string username = txtUser.Text;             //Get the name the user entered
+            string difficulty = getGameDifficulty();    //Get the difficulty setting
+            int gridSize = gameDetails.gridSize;        //get the grid size
+            int score = gameDetails.score;              //finally get the score
             
+            //Pass them all into the add method of our coreOrganizerViewModel
             scoreOrganizerVM.Add(username, difficulty, score, gridSize);
-            this.Frame.Navigate(typeof(MainPage));
+            this.Frame.Navigate(typeof(MainPage));//Then go back to the main page after all is done
 
         }
 
+        //Button for submitting score changes colour when hovered over
         private void btnHover(object sender, PointerRoutedEventArgs e)
         {
             Button btn = (Button)sender;
             btn.Background = new SolidColorBrush(Colors.SeaGreen);
         }
 
+        //Button for submitting score changes back to default colur when not hovered over
         private void btnHoverStopped(object sender, PointerRoutedEventArgs e)
         {
             Button btn = (Button)sender;
@@ -75,16 +78,19 @@ namespace MineSweeper
             return App.difficulty; //return the difficulty of the game
         }
 
+        //Click event to navigate to main page (home)
         private void homeClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
         }
 
+        //Click event to navigate to settings
         private void settingsClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Settings));
         }
 
+        //Click event to navigate to rules page
         private void rulesClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Rules));

@@ -47,7 +47,7 @@ namespace MineSweeper
         //When page is naviagated to
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            applyGameDefaults();
+            applyGameDefaults();//Set time and score to 0, clears the grid
         }
 
         //Click event to bring us to the settings page
@@ -116,10 +116,6 @@ namespace MineSweeper
                     mines = list.OrderBy(_ => rnd.Next()).Take(3).ToArray();
                     //Finds how many mines are in this game
                     mineAmnt = 3;
-                    showMessage(mines);
-
-                    //THIS METHOD IS FOR TESTING ONLY
-                    //showMessage(mines);
                 }
                 else if(gridSize == 8)//if grid is 8 x 8 (64 cells)
                 {
@@ -195,15 +191,15 @@ namespace MineSweeper
         }
 
       
+        //THE METHOD BELOW CAN BE USED FOR TESTING, INSERT IT INTO ONE OF THE GAME CONDITIONS DIRECTLY ABOVE AND PASS 
+        //IN THE 'mines' ARRAY. IT WILL SHOW THE MINE LOCATIONS. CURRENTLY ITS SUITED FOR AN EASY GAME 6X6 BECAUSE
+        //THAT GAME ONLY CONTAINS THREE MINES
         ///////////////////////////////////////////////////////////////////////
-     
-        //Used for testing
-         private async void showMessage(int [] ary)
+        /*private async void showMessage(int [] ary)
          {
              MessageDialog msgbox = new MessageDialog(ary[0].ToString() + " " + ary[1].ToString() + " " + ary[2].ToString());
              await msgbox.ShowAsync();
-         }
-       
+         }*/
         //////////////////////////////////////////////////////////////////////////
       
         //Creates a list with all the cell numbers by using gridsize x gridsize

@@ -28,13 +28,13 @@
     <AppXManifest Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-09-25T19:48:55.528</Modified>
+      <Modified>2016-09-25T20:23:45.678</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\MineSweeper.exe">
       <PackagePath>entrypoint\MineSweeper.exe</PackagePath>
-      <Modified>2016-09-25T19:48:55.161</Modified>
+      <Modified>2016-09-25T20:23:44.481</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kieran\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -520,11 +520,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-09-25T18:55:51.455</Modified>
+      <Modified>2016-09-25T20:23:45.252</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\Core\MineSweeper.exe">
       <PackagePath>MineSweeper.exe</PackagePath>
-      <Modified>2016-09-25T19:48:55.524</Modified>
+      <Modified>2016-09-25T20:23:45.673</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -56,6 +56,7 @@ namespace MineSweeper.ViewModels
             set { SetProperty(ref scoresList, value); }
         }
 
+        //Gets the variables sent from the Add method in SetHighScore.xaml.cs and passes them on to our score organizer
         public void Add(string user, string difficulty, int score, int gridSize)
         {
             insertOrganizer.Add(user, difficulty, score, gridSize);

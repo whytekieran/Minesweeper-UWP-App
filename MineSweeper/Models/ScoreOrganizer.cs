@@ -21,7 +21,8 @@ namespace MineSweeper.Models
             scores = DataService.GetScores();
         }
 
-        //Add to scores list, needed by view model and add to the database itself
+        //Add to the database by passing the needed variables from score organizer view model to the data service
+        //the data service will then add the score to the correct table
         public void Add(string user, string difficulty, int score, int gridSize)
         {
             DataService.Insert(user, difficulty, score, gridSize);

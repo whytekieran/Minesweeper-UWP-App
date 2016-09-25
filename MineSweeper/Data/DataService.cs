@@ -9,40 +9,40 @@ namespace MineSweeper.Data
     //The dataservice class is responsible for communicating with the database, getting and inserting scores for storage
     public class DataService
     {
-        public static int choosenTable;         //This variable is set by the view model so we know which table to read from
+        public static int choosenTable;          //This variable is set by the view model so we know which table to read from
         private static SQLiteConnection con;           //Connection object for SQLite database
         private static string path;                    //The path of the database in the file system
         private static List<ScoreGeneric> results;
 
-        //Fake score data for now until database or cloud service is added.
+        //Retrieves data(scores from the database depending on which scores user choose to see)
         public static List<ScoreGeneric> GetScores()
         {
+            //Connect to the database in windows local folder, specify the platform being used
             path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Minesweeper.sqlite");
             con = new SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
-            Debug.WriteLine(path);
 
             //Perfrom a switch depending on user choice made to select a certain high score table
             switch (choosenTable)
             {
                 case 0:
                     con.CreateTable<EScore6>();//creates a table called 'EScore6'
-                    results = con.Query<ScoreGeneric>("select * from EScore6").ToList<ScoreGeneric>();
-                    con.Close();
+                    results = con.Query<ScoreGeneric>("select * from EScore6").ToList<ScoreGeneric>();//get the scores
+                    con.Close();//close the connection after scores have been retrieved
                     break;
                 case 1:
                     con.CreateTable<EScore8>();//creates a table called 'EScore8'
-                    results = con.Query<ScoreGeneric>("select * from EScore8").ToList<ScoreGeneric>();
-                    con.Close();
+                    results = con.Query<ScoreGeneric>("select * from EScore8").ToList<ScoreGeneric>();//get the scores
+                    con.Close();//close the connection after scores have been retrieved
                     break;
                 case 2:
                     con.CreateTable<EScore10>();//creates a table called 'EScore10'
-                    results = con.Query<ScoreGeneric>("select * from EScore10").ToList<ScoreGeneric>();
-                    con.Close();
+                    results = con.Query<ScoreGeneric>("select * from EScore10").ToList<ScoreGeneric>();//get the scores
+                    con.Close();//close the connection after scores have been retrieved
                     break;
                 case 3:
                     con.CreateTable<MScore6>();//creates a table called 'MScore6'
-                    results = con.Query<ScoreGeneric>("select * from MScore6").ToList<ScoreGeneric>();
-                    con.Close();
+                    results = con.Query<ScoreGeneric>("select * from MScore6").ToList<ScoreGeneric>();//get the scores
+                    con.Close();//close the connection after scores have been retrieved
                     break;
                 case 4:
                     con.CreateTable<MScore8>();//creates a table called 'MScore8'
@@ -75,15 +75,17 @@ namespace MineSweeper.Data
 
         }//end getScores()
 
-        //all methods below will write to some sort of database in the future, either local or on a cloud service
+        //Methods below will write to the database
         public static void Insert(string user, string difficulty, int score, int gridSize)
         {
+            //Connect to the database in windows local folder, specify the platform being used
             path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "Minesweeper.sqlite");
             con = new SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path);
-            Debug.WriteLine(path);
 
+            //If difficulty setting of the game is easy
             if (difficulty == "Easy")
             {
+                //checks which type of easy game was played and inserts high score into the corresponding table
                 if (gridSize == 6)
                 {
                     con.CreateTable<EScore6>();//creates a table called 'EScore6'
@@ -103,8 +105,9 @@ namespace MineSweeper.Data
                     con.Close();
                 }
             }
-            else if(difficulty == "Medium")
+            else if(difficulty == "Medium")//If difficulty setting of the game is medium
             {
+                //checks which type of easy game was played and inserts high score into the corresponding table
                 if (gridSize == 6)
                 {
                     con.CreateTable<MScore6>();
@@ -124,8 +127,9 @@ namespace MineSweeper.Data
                     con.Close();
                 }
             }
-            else if(difficulty == "Hard")
+            else if(difficulty == "Hard")//If difficulty setting of the game is hard
             {
+                //checks which type of easy game was played and inserts high score into the corresponding table
                 if (gridSize == 6)
                 {
                     con.CreateTable<HScore6>();
