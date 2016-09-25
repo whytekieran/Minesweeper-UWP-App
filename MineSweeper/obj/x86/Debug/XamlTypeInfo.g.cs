@@ -200,6 +200,7 @@ namespace MineSweeper.MineSweeper_XamlTypeInfo
         private object Activate_6_SetHighScore() { return new global::MineSweeper.SetHighScore(); }
         private object Activate_7_Settings() { return new global::MineSweeper.Settings(); }
         private object Activate_8_ViewHighScore() { return new global::MineSweeper.ViewHighScore(); }
+        private object Activate_9_ScoreOrganizerViewModel() { return new global::MineSweeper.ViewModels.ScoreOrganizerViewModel(); }
         private object Activate_10_VMHelper() { return new global::MineSweeper.ViewModels.VMHelper(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)

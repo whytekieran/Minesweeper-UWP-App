@@ -19,8 +19,15 @@ namespace MineSweeper.ViewModels
     //NOTE: Commented out code may not be nessesary for this program - at least not for now, looks doubtful
     public class ScoreOrganizerViewModel : VMHelper
     {
+        ScoreOrganizer insertOrganizer;
         ScoreOrganizer organizer;
         ScoreGeneric scoreGeneric;
+
+        //Overloaded default constructor
+        public ScoreOrganizerViewModel()
+        {
+            insertOrganizer = new ScoreOrganizer();
+        }
 
         //Contructor takes index of selected user option
         public ScoreOrganizerViewModel(int choosenTable)
@@ -49,53 +56,9 @@ namespace MineSweeper.ViewModels
             set { SetProperty(ref scoresList, value); }
         }
 
-        /*
-        int _SelectedIndex;
-        public int SelectedIndex
+        public void Add(string user, string difficulty, int score, int gridSize)
         {
-            get
-            {
-                return _SelectedIndex;
-            }
-            set
-            {
-                if (SetProperty(ref _SelectedIndex, value))
-                {
-                    RaisePropertyChanged(nameof(SelectedScore));
-                }
-            }
+            insertOrganizer.Add(user, difficulty, score, gridSize);
         }
-
-        public ScoreViewModel SelectedScore
-        {
-            get { return (_SelectedIndex >= 0) ? _Scores[_SelectedIndex] : null; }
-        }*/
-
-        public void Add()
-        {
-            var score = new ScoreGenericViewModel();
-            //score.PropertyChanged += Person_OnNotifyPropertyChanged;
-            ScoresCollection.Add(score);
-            organizer.Add(score);
-            //SelectedIndex = ScoresCollection.IndexOf(score);
-        }
-
-        /* public void Delete()
-         {
-             if (SelectedIndex != -1)
-             {
-                 var score = ScoresCollection[SelectedIndex];
-                 ScoresCollection.RemoveAt(SelectedIndex);
-                 organizer.Delete(score);
-             }
-         }*/
-
-        /*
-    //may not be nessesary for this program
-    void Person_OnNotifyPropertyChanged(Object sender, PropertyChangedEventArgs e)
-    {
-        organizer.Update((ScoreViewModel)sender);
-    }
-    */
     }
 }

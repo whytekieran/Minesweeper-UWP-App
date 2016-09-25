@@ -29,7 +29,7 @@ namespace MineSweeper
         private long mins;                                      //Holds the minutes of the timer
         private long secs;                                      //Holds the seconds of the timer
         private string difficulty;                              //Holds the game difficulty setting
-        private int score = 0;                                  //The users score
+        private int score;                                      //The users score
         CheckBox btnChecked;                                    //Holds which user game choice is checked
         private int[] mines;                                    //Holds the mine locations
         Rectangle tappedCell;                                   //Holds the currently tapped rectangle
@@ -47,8 +47,7 @@ namespace MineSweeper
         //When page is naviagated to
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            txtScore.Text = score.ToString();       //Set the score and time to defaults
-            txtTimer.Text = "0:00";
+            applyGameDefaults();
         }
 
         //Click event to bring us to the settings page
@@ -117,6 +116,7 @@ namespace MineSweeper
                     mines = list.OrderBy(_ => rnd.Next()).Take(3).ToArray();
                     //Finds how many mines are in this game
                     mineAmnt = 3;
+                    showMessage(mines);
 
                     //THIS METHOD IS FOR TESTING ONLY
                     //showMessage(mines);
@@ -441,15 +441,14 @@ namespace MineSweeper
         private void playAgainClick(IUICommand command)
         {
             applyGameDefaults();                                    //Apply default settings, does a refresh
+            uncheckGameSelection();
         }
 
         //Event for the set high score button
         private void highscoreClick(IUICommand command)
         {
-            applyGameDefaults();                                    //Apply default settings, does a refresh
-
-            //Navigate to the scores page
-            this.Frame.Navigate(typeof(SetHighScore));
+            //Navigate to the set score page and pass details about the gridsize and player score
+            this.Frame.Navigate(typeof(SetHighScore), new GameDetailsPasser { gridSize = gridSize, score = score });
         }
 
         //Show message indicating a mine g=hit and end of game
@@ -471,6 +470,7 @@ namespace MineSweeper
         private void OkBtnClick(IUICommand command)
         {
             applyGameDefaults();                                    //Apply default settings, does a refresh
+            uncheckGameSelection();
         }
 
         //Checks if any mine number matches the tapped cells number
@@ -579,10 +579,14 @@ namespace MineSweeper
             txtScore.Text = "0";                                  //Score set back to zero
             score = 0;
             App.gameRunning = false;                                  //Game is not longer running
-            btnChecked.IsChecked = false;                         //User game choice uncheck
             gameGrid.ColumnDefinitions.Clear();                   //Clear everything in the grid
             gameGrid.RowDefinitions.Clear();
             gameGrid.Children.Clear();
+        }
+
+        private void uncheckGameSelection()
+        {
+            btnChecked.IsChecked = false;                         //User game choice uncheck
         }
 
         //Stops the games timers
@@ -637,11 +641,13 @@ namespace MineSweeper
             return App.difficulty; //return the difficulty of the game
         }
 
+        //Click event brings us to the rules page
         private void rulesClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Rules));
         }
 
+        //Click event brings us to the main page (home)
         private void homeClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));

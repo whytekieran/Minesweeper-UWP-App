@@ -41,6 +41,7 @@ namespace MineSweeper
             //then also manages the Binding between them and our XAML view. Pass the selected index from the user
             //into the ScoreOrganizerViewModel so the correct table is choosen from the database.
             ScoreOrganizerVM = new ScoreOrganizerViewModel(passedData.index);
+            
         }
 
         //Getter and setter for the ScoreOrganizerViewModel to allow binding
@@ -48,15 +49,6 @@ namespace MineSweeper
         {
             get;
             set;
-        }
-
-        //gets the games difficulty setting from local storage
-        private string getGameDifficulty()
-        {
-            ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
-            App.difficulty = (string)localSettings.Values["gameDifficulty"];
-
-            return App.difficulty; //return the difficulty of the game
         }
 
         //Click event takes us to the Settings page

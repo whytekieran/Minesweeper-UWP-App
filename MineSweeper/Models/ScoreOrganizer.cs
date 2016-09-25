@@ -10,6 +10,10 @@ namespace MineSweeper.Models
     {
         public List<ScoreGeneric> scores { get; set; }
 
+        //Overloaded constructor
+        public ScoreOrganizer()
+        { }
+
         //Contructor gets list of scores from the data service depending on user choice made.
         public ScoreOrganizer(int choosenTable)
         {
@@ -18,35 +22,9 @@ namespace MineSweeper.Models
         }
 
         //Add to scores list, needed by view model and add to the database itself
-        public void Add(ScoreGeneric score)
+        public void Add(string user, string difficulty, int score, int gridSize)
         {
-            if (!scores.Contains(score))
-            {
-                scores.Add(score);
-                DataService.Insert(score);
-            }
+            DataService.Insert(user, difficulty, score, gridSize);
         }
-
-        //commented code below may not be needed for this program
-        /*
-        //delete from scores list, needed by view model and delete from the database itself
-        public void Delete(Score score)
-        {
-            if (scores.Contains(score))
-            {
-                scores.Remove(score);
-                DataService.Delete(score);
-            }
-        }
-
-        public void Update(Score score)
-        {
-            if (scores.Contains(score))
-            {
-                //not sure if this feature is nessesary yet, may not add it into the project.
-                //scores.Up(score);
-                DataService.Update(score);
-            }
-        }*/
     }
 }

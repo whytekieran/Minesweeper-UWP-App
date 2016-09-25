@@ -40,242 +40,80 @@ namespace MineSweeper.Data
     {
         //Each high score has a username and score and id for the database
         [PrimaryKey, AutoIncrement]
-        private int id { get; set; }
-        private String username;
-        private int userScore;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public String Username
-        {
-            get { return username; }
-            set { username = value; }
-        }
-
-        public int UserScore
-        {
-            get { return userScore; }
-            set { userScore = value; }
-        }
+        public int Id { get; set; }
+        public String Username { get; set; }
+        public int UserScore { get; set; }
     }
 
     public class EScore8
     {
         //Each high score has a username and score and id for the database
         [PrimaryKey, AutoIncrement]
-        private int id { get; set; }
-        private String username;
-        private int userScore;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public String Username
-        {
-            get { return username; }
-            set { username = value; }
-        }
-
-        public int UserScore
-        {
-            get { return userScore; }
-            set { userScore = value; }
-        }
+        public int Id { get; set; }
+        public String Username { get; set; }
+        public int UserScore { get; set; }
     }
 
     public class EScore10
     {
         //Each high score has a username and score and id for the database
         [PrimaryKey, AutoIncrement]
-        private int id { get; set; }
-        private String username;
-        private int userScore;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public String Username
-        {
-            get { return username; }
-            set { username = value; }
-        }
-
-        public int UserScore
-        {
-            get { return userScore; }
-            set { userScore = value; }
-        }
+        public int Id { get; set; }
+        public String Username { get; set; }
+        public int UserScore { get; set; }
     }
 
     public class MScore6
     {
         //Each high score has a username and score and id for the database
         [PrimaryKey, AutoIncrement]
-        private int id { get; set; }
-        private String username;
-        private int userScore;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public String Username
-        {
-            get { return username; }
-            set { username = value; }
-        }
-
-        public int UserScore
-        {
-            get { return userScore; }
-            set { userScore = value; }
-        }
+        public int Id { get; set; }
+        public String Username { get; set; }
+        public int UserScore { get; set; }
     }
 
     public class MScore8
     {
         //Each high score has a username and score and id for the database
         [PrimaryKey, AutoIncrement]
-        private int id { get; set; }
-        private String username;
-        private int userScore;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public String Username
-        {
-            get { return username; }
-            set { username = value; }
-        }
-
-        public int UserScore
-        {
-            get { return userScore; }
-            set { userScore = value; }
-        }
+        public int Id { get; set; }
+        public String Username { get; set; }
+        public int UserScore { get; set; }
     }
 
     public class MScore10
     {
         //Each high score has a username and score and id for the database
         [PrimaryKey, AutoIncrement]
-        private int id { get; set; }
-        private String username;
-        private int userScore;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public String Username
-        {
-            get { return username; }
-            set { username = value; }
-        }
-
-        public int UserScore
-        {
-            get { return userScore; }
-            set { userScore = value; }
-        }
+        public int Id { get; set; }
+        public String Username { get; set; }
+        public int UserScore { get; set; }
     }
 
     public class HScore6
     {
         //Each high score has a username and score and id for the database
         [PrimaryKey, AutoIncrement]
-        private int id { get; set; }
-        private String username;
-        private int userScore;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public String Username
-        {
-            get { return username; }
-            set { username = value; }
-        }
-
-        public int UserScore
-        {
-            get { return userScore; }
-            set { userScore = value; }
-        }
+        public int Id { get; set; }
+        public String Username { get; set; }
+        public int UserScore { get; set; }
     }
 
     public class HScore8
     {
         //Each high score has a username and score and id for the database
         [PrimaryKey, AutoIncrement]
-        private int id { get; set; }
-        private String username;
-        private int userScore;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public String Username
-        {
-            get { return username; }
-            set { username = value; }
-        }
-
-        public int UserScore
-        {
-            get { return userScore; }
-            set { userScore = value; }
-        }
+        public int Id { get; set; }
+        public String Username { get; set; }
+        public int UserScore { get; set; }
     }
 
     public class HScore10
     {
         //Each high score has a username and score and id for the database
         [PrimaryKey, AutoIncrement]
-        private int id { get; set; }
-        private String username;
-        private int userScore;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public String Username
-        {
-            get { return username; }
-            set { username = value; }
-        }
-
-        public int UserScore
-        {
-            get { return userScore; }
-            set { userScore = value; }
-        }
+        public int Id { get; set; }
+        public String Username { get; set; }
+        public int UserScore { get; set; }
     }
 }

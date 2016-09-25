@@ -100,6 +100,7 @@
     <Compile Include="Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameDetailsPasser.cs" />
     <Compile Include="HighScoreType.cs" />
     <Compile Include="IndexPasser.cs" />
     <Compile Include="MainPage.xaml.cs">

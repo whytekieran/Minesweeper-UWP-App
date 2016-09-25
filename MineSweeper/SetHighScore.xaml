@@ -5,14 +5,64 @@
     xmlns:local="using:MineSweeper"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Background="{ThemeResource AppBarBackgroundThemeBrush}"
+    xmlns:viewModels="using:MineSweeper.ViewModels">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Orientation="Vertical">
-            <TextBox x:Name="username" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <TextBox x:Name="score" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Click="add"/>
+    <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
+        <StackPanel x:Name="TitlePanel" 
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Center">
+            <TextBlock x:Name="Title"
+                       Margin="0, 20, 0, 0" 
+                       TextWrapping="Wrap" 
+                       Text="Set Your High Score" 
+                       FontSize="30" 
+                       FontFamily="Showcard Gothic" />
         </StackPanel>
-
+        <StackPanel x:Name="InputPanel" 
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Orientation="Vertical">
+            <TextBlock x:Name="UsernameLabel" 
+                       TextWrapping="Wrap" 
+                       Text="Username:" 
+                       FontSize="25"
+                       Margin="0,0,0,10"/>
+            <TextBox x:Name="txtUser" 
+                     TextWrapping="Wrap"
+                     Text=""
+                     Margin="0,0,0,10"/>
+            <TextBlock x:Name="ScoreLabel" 
+                       TextWrapping="Wrap" 
+                       Text="Score" 
+                       FontSize="25"
+                       Margin="0,0,0,10"/>
+            <TextBox x:Name="txtScore" 
+                     IsEnabled="False" 
+                     TextWrapping="Wrap" 
+                     Text=""
+                     Margin="0,0,0,15"/>
+            <Button x:Name="btnSubmitScore" 
+                    Content="Add Score" 
+                    Background="White" 
+                    BorderBrush="Black" 
+                    FontFamily="Stencil"
+                    PointerEntered="btnHover"
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch"
+                    PointerExited="btnHoverStopped"
+                    Click="submitScoreClick"/>
+        </StackPanel>
     </Grid>
+    <!--App bar at the bottom with Home, settings and rules options. Bar can be opened/closed-->
+    <Page.BottomAppBar>
+        <AppBar Background="LightGray" IsOpen="false" IsSticky="True">
+            <StackPanel Orientation="Horizontal">
+                <AppBarButton x:Name="Home" Label="Home" Icon="Home" Click="homeClick"/>
+                <AppBarButton x:Name="Settings" Label="Settings" Icon="Setting" Click="settingsClick"/>
+                <AppBarButton x:Name="Rules" Label="Game Rules" Icon="Help" Click="rulesClick"/>
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
 </Page>

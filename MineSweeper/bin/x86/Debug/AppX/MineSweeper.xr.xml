@@ -132,10 +132,10 @@
     <RootType FullName="MineSweeper.Rules" />
     <RootType FullName="MineSweeper.ScoresMenu" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Text" />
-      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="IsEnabled" />
     </RootType>
     <RootType FullName="MineSweeper.SetHighScore" />
     <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
