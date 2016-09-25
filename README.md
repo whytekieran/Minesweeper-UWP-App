@@ -1,4 +1,4 @@
-# **_MineSweeper_** ![Constituencies](Minesweeper7.png)
+# **_MineSweeper_** ![Constituencies](/ReadMeImages/Minesweeper.png)
 
 **Student Name:** Ciaran Whyte </br>
 **Student ID:** G00254624 </br>
