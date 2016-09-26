@@ -293,8 +293,8 @@ namespace MineSweeper
             score = Convert.ToInt32(txtScore.Text);
             int iMins = (int)mins;
             int iSecs = (int)secs;
-            int minsScore = 30 * iMins;//30 Points for each minute left
-            int secsScore = 2 * iSecs;//2 points for every second left
+            int minsScore = 50 * iMins;//30 Points for each minute left
+            int secsScore = 3 * iSecs;//2 points for every second left
             score = score + (minsScore + secsScore);
         }
 
