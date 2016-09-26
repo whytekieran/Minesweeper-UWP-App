@@ -15,7 +15,7 @@ of the grid. When clicked the cell can turn one of three colours. A green cell m
 grid means that there is a mine in one of the cells that surrounds that cell that was clicked. A red cell means that you have hit a mine, at this point all the other mines will
 be shown (Blow up) and the game is over. When the player manages to only have cells with mines left in the grid he/she will be notified they have won. <br><br>
 When the player wins a game he/she will then have the option to save their score to high scores. These are stored in an SQLite database and the table they are saved into depends
-on which type of game and difficulty settings the user has choosen.
+on which type of game and difficulty settings the user has choosen. The game itself does have a rules page which decribes how to play the game to any user that downloads it.
 //could possibly add link to the store once its on it.
 
 ## **_Techical Summary_**
