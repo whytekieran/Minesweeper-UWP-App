@@ -54,11 +54,20 @@ HScore8 | Holds high scores for a hard mode 8x8 game
 HScore10 | Holds high scores for a hard mode 10x10 game
 
 
-### **MVVM**
-//describe the MVVM model used and how its implemented
-
 ### **Data Binding**
-//describe areas where there is data binding
+In this particular application data binding exists in a few places. Firstly there is a very basic example using the "Binding" keyword shown inside the ScoresMenu page.
+In this example a List of objects is created using C# code, these objects simply contain information about each menu item. The menu or "list box items" are 
+then binded to these objects by using the list boxes *ItemsSource* property.<br>
+The second and more complex example of binding in this application uses the MVVM architecture and we use this in the ViewHighScores.xaml page. 
+<br>Basically what we do in the code behind for this page (ViewHighScores.xaml.cs) is we create an object of ScoreOrganizerViewModel type. This object then creates an object 
+of ScoreOrganizer type which contains a list of GenericScore objects that have been retrieved from the database. Each one of these GenericScore objects is passed into an 
+Observable Collection that sends notifications whenever any changes are made. This collection is the binded to the view which is what the user can see. The 
+ScoreOrganizerViewModel inherites a class that implements the INotifcationPropertyChanged event and also has generic methods which can hadnle any object, hence making the
+whole model incredibly flexible. MVVM is discussed in much more detail directly below.
+
+### **MVVM**
+The Model View View-Model (MVVM) architecture is a style of writing applications that allows us to break up the code into easily managable modules.
+//describe the MVVM model used and how its implemented
 
 ### **External Data Sources**
 //describe briefly that the app also has an api, discussed more down below
