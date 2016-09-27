@@ -21,18 +21,33 @@ on which type of game and difficulty settings the user has choosen. The game its
 ## **_Techical Summary_**
 
 ### **XAML**
+/decribe the application structure, XAML pages etc
 
-//decribe the application structure, XAML, C# SQLite, binding, MVVM model etc
+### **C#**
+describe the back end, c# classes used for the game and MVVM
+
+### **SQLite**
+//decribe the SQLite database
+
+### **MVVM**
+//describe the MVVM model used and how its implemented
+
+### **Data Binding**
+//describe areas where there is data binding
+
+### **External Data Sources**
+//describe briefly that the app also has an api, discussed more down below
+
 
 ## **_SQLite Data Storage_**
 The local high score storage for this minesweeper game are usingan SQLite database. To install SQLite for a project on Visual Studio 2015 you must do the following:
-- Go to the SQLite download site at [https://www.sqlite.org/download.html](https://www.sqlite.org/download.html)
+- First you need to go to the SQLite download site at [https://www.sqlite.org/download.html](https://www.sqlite.org/download.html)
 - Download SQLite for **Universal Windows Platform**
 - Open up Visual Studio 2015
 - The first thing we must do once Visual Studio 2015 is opened is add a reference to SQLite
 - Right click on the **References** folder in your project on **Solution Explorer** and then click **Add Reference**
 - On the pop up window, navigate to the **Universal Windows section** on the left and click **Extensions** 
-- Tick the ```SQLite for Universal App platform``` box, and also the **C++ Runtime 2015** then click **OK**
+- Tick the **SQLite for Universal App platform** box, and also the **C++ Runtime 2015** then click **OK**
 - In your project in solution explorer once again right click on the **References** folder and select **Manage Nuget Packages**
 - Select **Browse** and then type the following into the search area: **SQLite.Net-PCL**
 - You should see the package, then click **install**
