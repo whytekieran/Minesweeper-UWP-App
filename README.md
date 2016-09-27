@@ -19,10 +19,27 @@ on which type of game and difficulty settings the user has choosen. The game its
 //could possibly add link to the store once its on it.
 
 ## **_Techical Summary_**
+
+### **XAML**
+
 //decribe the application structure, XAML, C# SQLite, binding, MVVM model etc
 
 ## **_SQLite Data Storage_**
-//describe the database layout and steps needed to install SQLite.Net-PCL here
+The local high score storage for this minesweeper game are usingan SQLite database. To install SQLite for a project on Visual Studio 2015 you must do the following:
+- Go to the SQLite download site at [https://www.sqlite.org/download.html](https://www.sqlite.org/download.html)
+- Download SQLite for **Universal Windows Platform**
+- Open up Visual Studio 2015
+- The first thing we must do once Visual Studio 2015 is opened is add a reference to SQLite
+- Right click on the **References** folder in your project on **Solution Explorer** and then click **Add Reference**
+- On the pop up window, navigate to the **Universal Windows section** on the left and click **Extensions** 
+- Tick the ```SQLite for Universal App platform``` box, and also the **C++ Runtime 2015** then click **OK**
+- In your project in solution explorer once again right click on the **References** folder and select **Manage Nuget Packages**
+- Select **Browse** and then type the following into the search area: **SQLite.Net-PCL**
+- You should see the package, then click **install**
+- Thats it, SQLite is now installed into the project
+
+## **_The External API_**
+//discuss the api created with jax-rs for global(online) high scores
 
 ## **_Deployment For Visual Studio 2015_**
 //describe how to deploy the app here
