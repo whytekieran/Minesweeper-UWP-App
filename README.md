@@ -21,13 +21,38 @@ on which type of game and difficulty settings the user has choosen. The game its
 ## **_Techical Summary_**
 
 ### **XAML**
-/decribe the application structure, XAML pages etc
+XAML is used to the design the User Interface or "Views" of the application. These are the areas the user interacts with. The pages that have been created using XAML in
+this project are as follows:
+
+XAML Page | Description
+------------ | -------------
+MainPage.xaml | This is the home page of the application, from here the user can choose to play a game, view scores, go to settings, view the rules or simply exit.
+Game.xaml | This is the page where the minesweeper game is actually played. The user selects what grid size he/she wants and then its created on the fly.
+Rules.xaml | A page that shows a list of game rules to the user.
+ScoresMenu.xaml | On this page the user can select from a list of menu options to view a particular set of high scores. Uses some basic binding.
+SetHighScore.xaml | This page is shown after a user wins a game. It allows them to input a name and save their high score.
+Settings.xaml | Here the user can set the game difficulty to easy medium or hard mode.
+ViewHighScore.xaml | This page is where the user can view their high scores, the page uses the MVVM model to bind the scores to the page.
 
 ### **C#**
 describe the back end, c# classes used for the game and MVVM
 
 ### **SQLite**
-//decribe the SQLite database
+The SQLite database saves the scores on a local database. This database is used solely for the users scores and does not save online scores for all users that play the game.
+The database called Minesweeper.db consists of nine tables which are as follows:
+
+Table Name | Description
+------------ | -------------
+EScore6 | Holds high scores for an easy mode 6x6 game
+EScore8 | Holds high scores for an easy mode 8x8 game
+EScore10 | Holds high scores for an easy mode 10x10 game
+MScore6 | Holds high scores for a medium mode 6x6 game
+MScore8 | Holds high scores for a medium mode 8x8 game
+MScore10 | Holds high scores for a medium mode 10x10 game
+HScore6 | Holds high scores for a hard mode 6x6 game
+HScore8 | Holds high scores for a hard mode 8x8 game
+HScore10 | Holds high scores for a hard mode 10x10 game
+
 
 ### **MVVM**
 //describe the MVVM model used and how its implemented
