@@ -1,0 +1,10 @@
+/out:"B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\ARM\Release\ilc\intermediate\SgGenerated\\"
+/int:"B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\ARM\Release\ilc\intermediate\\"
+/ref:"B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\ARM\Release\ilc\intermediate\PreMergeILTransformed\\"
+/ref:"B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\ARM\Release\ilc\intermediate\TransformedSRWR\\"
+/ref:"B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\ARM\Release\ilc\in\\"
+/ref:"B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\ARM\Release\ilc\in\\"
+/ref:"B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\ARM\Release\ilc\in\\"
+/ref:"C:\Program Files (x86)\MSBuild\Microsoft\.NetNative\ARM\ilc\lib\Private\\"
+/ref:"B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\ARM\Release\ilc\in\WinMetadata\\"
+/ca:System.Private.CoreLib

@@ -36,7 +36,8 @@
             <TextBox x:ConnectionId='4' x:Name="txtUser" 
                      TextWrapping="Wrap"
                      Text=""
-                     Margin="0,0,0,10"/>
+                     Margin="0,0,0,10"
+                                           />
             <TextBlock x:ConnectionId='5' x:Name="ScoreLabel" 
                        TextWrapping="Wrap" 
                        Text="Score" 

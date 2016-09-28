@@ -36,7 +36,8 @@
             <TextBox x:Name="txtUser" 
                      TextWrapping="Wrap"
                      Text=""
-                     Margin="0,0,0,10"/>
+                     Margin="0,0,0,10"
+                     KeyDown="enterKeyDown"/>
             <TextBlock x:Name="ScoreLabel" 
                        TextWrapping="Wrap" 
                        Text="Score" 

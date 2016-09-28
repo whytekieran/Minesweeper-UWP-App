@@ -9,6 +9,22 @@
 
     <!--Main Grid-->
     <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="GamePortrait"/>
+                <VisualState x:Name="GameLandscape">
+                    <VisualState.Setters>
+                        <Setter Target="gameGrid.(FrameworkElement.Height)" Value="237"/>
+                        <Setter Target="gameGrid.(FrameworkElement.Margin)">
+                            <Setter.Value>
+                                <Thickness>61,62,66,61</Thickness>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Target="gameGrid.(FrameworkElement.Width)" Value="513"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <!--Stackpanels hold the checkboxes that provide the user with grid size options for the game-->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" 
@@ -36,19 +52,19 @@
                           Checked="startMineGame" />
             </StackPanel>
             <!--Stackpanel holds two textblocks which output score and time remaining-->
-            <StackPanel Margin="0,5,0,0" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock x:Name="txtTimer" TextAlignment="Center" Width="150" Margin="0,0,5,0" Text=""/>
-                <TextBlock x:Name="txtScore" TextAlignment="Center" Width="150" Margin="0,0,0,0" Text=""/>
+            <StackPanel Margin="0,5,0,50" Orientation="Horizontal" Height="30"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="txtTimer" TextAlignment="Center" Width="150" Height="30"  Margin="0,0,5,0" Text=""/>
+                <TextBlock x:Name="txtScore" TextAlignment="Center" Width="150" Height="30" Margin="0,0,0,0" Text=""/>
             </StackPanel>
         </StackPanel>
 
-       <!--Empty Grid to hold the game grid, will be created on the fly when user clicks a checkbox option-->
+        <!--Empty Grid to hold the game grid, will be created on the fly when user clicks a checkbox option-->
         <Grid  x:Name="gameGrid" 
                Height="470" 
                Width="355" 
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
-               Margin="1,20,0,0">
+               Margin="1,50,0,0">
             <Grid.Background>
                 <SolidColorBrush x:Name="mySolidColorBrush" Color="Gray" />
             </Grid.Background>

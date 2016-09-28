@@ -25,19 +25,12 @@ namespace MineSweeper
 {
     public sealed partial class MainPage : Page
     {
-        private SimpleOrientationSensor orientationSensor;
+       // private SimpleOrientationSensor orientationSensor;
 
         //Constructor
         public MainPage()
         {
             this.InitializeComponent();
-            orientationSensor = SimpleOrientationSensor.GetDefault();  //Get a default version of the orientation sensor.
-
-            // Assign an event handler for the sensor orientation-changed event 
-            if (orientationSensor != null)
-            {
-                orientationSensor.OrientationChanged += new TypedEventHandler<SimpleOrientationSensor, SimpleOrientationSensorOrientationChangedEventArgs>(OrientationChanged);
-            }
         }
         //End constructor
 
@@ -80,35 +73,6 @@ namespace MineSweeper
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             App.difficulty = "Easy";
             localSettings.Values["gameDifficulty"] = App.difficulty;
-        }
-
-        //This event handler is triggered when the orientation of the phone changes, because the method uses the
-        //async keyword it will happen asynchronously. Hence allowing the application to continue with other tasks while this
-        //method is being executed in a seperate thread to the UI thread.
-        private async void OrientationChanged(object sender, SimpleOrientationSensorOrientationChangedEventArgs e)
-        {
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                SimpleOrientation orientation = e.Orientation;      //Here we retrieve the current orientation of the sensor
-                switch (orientation)
-                {
-                    case SimpleOrientation.NotRotated:  //If the phone isnt being rotated (portrait)
-                        //Portrait 
-                        DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;  //Set orientation to portrait
-                        VisualStateManager.GoToState(this, "Portrait6", true);                       //use portrait visual state
-                        break;
-                    case SimpleOrientation.Rotated90DegreesCounterclockwise:  //if rotated 90degrees to the left
-                        //Landscape
-                        DisplayInformation.AutoRotationPreferences = DisplayOrientations.Landscape; //set orientation to landscape
-                        VisualStateManager.GoToState(this, "Landscape5", true);                      //use the landscape visual state
-                        break;
-                    case SimpleOrientation.Rotated270DegreesCounterclockwise: //if 90degrees rotated to the right
-                        //Landscape
-                        DisplayInformation.AutoRotationPreferences = DisplayOrientations.Landscape; //set orientation to landscape
-                        VisualStateManager.GoToState(this, "Landscape5", true);                      //use the landscape visual state
-                        break;
-                }
-            });
         }
 
         //Changes buttons background colour when we mouse over them

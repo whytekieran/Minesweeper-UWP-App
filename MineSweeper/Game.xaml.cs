@@ -4,11 +4,14 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Devices.Sensors;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics.Display;
 using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -26,6 +29,7 @@ namespace MineSweeper
 {
     public sealed partial class Game : Page
     {
+        private SimpleOrientationSensor orientationSensor;
         private long mins;                                      //Holds the minutes of the timer
         private long secs;                                      //Holds the seconds of the timer
         private string difficulty;                              //Holds the game difficulty setting
@@ -42,6 +46,38 @@ namespace MineSweeper
         public Game()
         {
             this.InitializeComponent();
+
+            orientationSensor = SimpleOrientationSensor.GetDefault();  //Get a default version of the orientation sensor.
+
+            // Assign an event handler for the sensor orientation-changed event 
+            if (orientationSensor != null)
+            {
+                orientationSensor.OrientationChanged += new TypedEventHandler<SimpleOrientationSensor, SimpleOrientationSensorOrientationChangedEventArgs>(OrientationChanged);
+            }
+        }
+
+        private async void OrientationChanged(object sender, SimpleOrientationSensorOrientationChangedEventArgs e)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                SimpleOrientation orientation = e.Orientation;      //Here we retrieve the current orientation of the sensor
+                switch (orientation)
+                {
+                    case SimpleOrientation.NotRotated:  //If the phone isnt being rotated (portrait)
+                        //Portrait 
+                        DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;  //Set orientation to portrait
+                        VisualStateManager.GoToState(this, "GamePortrait", true);                       //use portrait visual state
+                        break;
+                    case SimpleOrientation.Rotated90DegreesCounterclockwise:  //if rotated 90degrees to the left
+                        //Landscape
+                        DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait; //set orientation to portrait
+                        break;
+                    case SimpleOrientation.Rotated270DegreesCounterclockwise: //if 90degrees rotated to the right
+                        //Landscape
+                        DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait; //set orientation to portrait
+                        break;
+                }
+            });
         }
 
         //When page is naviagated to
@@ -116,6 +152,7 @@ namespace MineSweeper
                     mines = list.OrderBy(_ => rnd.Next()).Take(3).ToArray();
                     //Finds how many mines are in this game
                     mineAmnt = 3;
+                    showMessage(mines);
                 }
                 else if(gridSize == 8)//if grid is 8 x 8 (64 cells)
                 {
@@ -195,11 +232,11 @@ namespace MineSweeper
         //IN THE 'mines' ARRAY. IT WILL SHOW THE MINE LOCATIONS. CURRENTLY ITS SUITED FOR AN EASY GAME 6X6 BECAUSE
         //THAT GAME ONLY CONTAINS THREE MINES
         ///////////////////////////////////////////////////////////////////////
-        /*private async void showMessage(int [] ary)
+        private async void showMessage(int [] ary)
          {
              MessageDialog msgbox = new MessageDialog(ary[0].ToString() + " " + ary[1].ToString() + " " + ary[2].ToString());
              await msgbox.ShowAsync();
-         }*/
+         }
         //////////////////////////////////////////////////////////////////////////
       
         //Creates a list with all the cell numbers by using gridsize x gridsize

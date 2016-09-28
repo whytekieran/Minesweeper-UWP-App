@@ -53,6 +53,7 @@ namespace MineSweeper
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -65,7 +66,7 @@ namespace MineSweeper
                 rootFrame.NavigationFailed += OnNavigationFailed;
                 //////////
                 rootFrame.Navigated += RootFrame_Navigated; //Added event to created back arrow if we naviate from root frame
-                ///////////
+                                                            //////////
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
@@ -116,7 +117,8 @@ namespace MineSweeper
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
-            if (rootFrame.CanGoBack)
+            //Dint allow to go back on the main page. This stops user setting high score twice.
+            if (rootFrame.CanGoBack && rootFrame.CurrentSourcePageType != typeof(MainPage))
             {
                 e.Handled = true;
                 rootFrame.GoBack();

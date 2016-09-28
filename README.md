@@ -69,6 +69,8 @@ whole model incredibly flexible. MVVM and its advantages are discussed in much m
 The Model View View-Model (MVVM) architecture is a style of writing applications that allows us to break up the code into easily managable modules.
 //describe the MVVM model used and how its implemented
 
+### **Handling Orientation & Screen Rotation*
+
 ### **External Data Sources**
 //describe briefly that the app also has an api, discussed more down below
 

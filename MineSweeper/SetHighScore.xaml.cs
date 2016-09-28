@@ -52,7 +52,16 @@ namespace MineSweeper
             //Pass them all into the add method of our coreOrganizerViewModel
             scoreOrganizerVM.Add(username, difficulty, score, gridSize);
             this.Frame.Navigate(typeof(MainPage));//Then go back to the main page after all is done
+        }
 
+        //Detects when the enter key has been pressed on the keyboard
+        private void enterKeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            //when the enter key has been pressed after entering username, call method to submit the score
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                submitScoreClick(sender, e);//Call the same method that is used for the enter word button
+            }
         }
 
         //Button for submitting score changes colour when hovered over

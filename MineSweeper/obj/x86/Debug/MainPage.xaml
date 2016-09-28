@@ -9,31 +9,12 @@
 
     <!--Main Grid-->
     <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
-        <!--Changes view slightly when rotated-->
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:ConnectionId='1' x:Name="VisualStateGroup">
-                <VisualState x:ConnectionId='2' x:Name="Portrait6"/>
-                <VisualState x:ConnectionId='3' x:Name="Landscape5">
-                    <VisualState.Setters>
-                        <Setter Target="stackPanel.(FrameworkElement.Height)" Value="88"/>
-                        <Setter Target="stackPanel.(FrameworkElement.Margin)">
-                            <Setter.Value>
-                                <Thickness>185,0,185,42</Thickness>
-                            </Setter.Value>
-                        </Setter>
-                        <Setter Target="image.(FrameworkElement.Height)" Value="173"/>
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
-
         <!--Outputs the Title-->
-        <StackPanel x:ConnectionId='4' x:Name="TitlePanel" 
+        <StackPanel x:ConnectionId='1' x:Name="TitlePanel" 
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Top">
 
-            <TextBlock x:ConnectionId='11' x:Name="Title"
+            <TextBlock x:ConnectionId='8' x:Name="Title"
                        Margin="0, 20, 0, 0" 
                        TextWrapping="Wrap" 
                        Text="MineSweeper" 
@@ -42,28 +23,28 @@
         </StackPanel>
 
         <!--Outputs the pages Images here-->
-        <StackPanel x:ConnectionId='5' x:Name="ImagePanel"
+        <StackPanel x:ConnectionId='2' x:Name="ImagePanel"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center">
 
-            <Image x:ConnectionId='10' x:Name="image" Source="Images/Minesweeper7.png" 
+            <Image x:ConnectionId='7' x:Name="image" Source="Images/Minesweeper7.png" 
                    Height="275" 
                    Width="300" />
         </StackPanel>
 
         <!--Stackpanel to hold the buttons for Play, Score and Exit-->
-        <StackPanel x:ConnectionId='6' x:Name="stackPanel" HorizontalAlignment="Center" 
+        <StackPanel x:ConnectionId='3' x:Name="stackPanel" HorizontalAlignment="Center" 
                     VerticalAlignment="Bottom"
                     Orientation="Horizontal"
                     Margin="0, 0, 0, 100" 
-                    d:LayoutOverrides="Height, LeftMargin, RightMargin" 
+                    d:LayoutOverrides="Width, Height, LeftMargin, RightMargin" 
                     RenderTransformOrigin="0.5,0.5">
             <StackPanel.RenderTransform>
                 <CompositeTransform/>
             </StackPanel.RenderTransform>
 
             <!--Buttons-->
-            <Button x:ConnectionId='7' x:Name="btnPlay" 
+            <Button x:ConnectionId='4' x:Name="btnPlay" 
                     Content="Play" 
                     Width="94" 
                     Margin="0, 0, 15, 0" 
@@ -74,7 +55,7 @@
                                                    
                                      />
 
-            <Button x:ConnectionId='8' x:Name="btnScores" 
+            <Button x:ConnectionId='5' x:Name="btnScores" 
                     Content="Scores" 
                     Width="94"  
                     Margin="0, 0, 15, 0" 
@@ -85,7 +66,7 @@
                                                    
                                        />
 
-            <Button x:ConnectionId='9' x:Name="btnExit" 
+            <Button x:ConnectionId='6' x:Name="btnExit" 
                     Content="Exit" 
                     Width="94" 
                     Background="White" 
@@ -100,8 +81,8 @@
     <Page.BottomAppBar>
         <AppBar Background="LightGray" IsOpen="false" IsSticky="True">
             <StackPanel Orientation="Horizontal">
-                <AppBarButton x:ConnectionId='12' x:Name="Settings" Label="Settings" Icon="Setting"                      />
-                <AppBarButton x:ConnectionId='13' x:Name="Rules" Label="Game Rules" Icon="Help"                   />
+                <AppBarButton x:ConnectionId='9' x:Name="Settings" Label="Settings" Icon="Setting"                      />
+                <AppBarButton x:ConnectionId='10' x:Name="Rules" Label="Game Rules" Icon="Help"                   />
             </StackPanel>
         </AppBar>
     </Page.BottomAppBar>

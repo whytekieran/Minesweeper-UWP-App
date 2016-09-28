@@ -9,25 +9,6 @@
 
     <!--Main Grid-->
     <Grid Background="{ThemeResource AppBarBackgroundThemeBrush}">
-        <!--Changes view slightly when rotated-->
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="Portrait6"/>
-                <VisualState x:Name="Landscape5">
-                    <VisualState.Setters>
-                        <Setter Target="stackPanel.(FrameworkElement.Height)" Value="88"/>
-                        <Setter Target="stackPanel.(FrameworkElement.Margin)">
-                            <Setter.Value>
-                                <Thickness>185,0,185,42</Thickness>
-                            </Setter.Value>
-                        </Setter>
-                        <Setter Target="image.(FrameworkElement.Height)" Value="173"/>
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
-
         <!--Outputs the Title-->
         <StackPanel x:Name="TitlePanel" 
                     HorizontalAlignment="Center" 
@@ -56,7 +37,7 @@
                     VerticalAlignment="Bottom"
                     Orientation="Horizontal"
                     Margin="0, 0, 0, 100" 
-                    d:LayoutOverrides="Height, LeftMargin, RightMargin" 
+                    d:LayoutOverrides="Width, Height, LeftMargin, RightMargin" 
                     RenderTransformOrigin="0.5,0.5">
             <StackPanel.RenderTransform>
                 <CompositeTransform/>
