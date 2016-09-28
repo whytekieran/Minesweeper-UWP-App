@@ -41,22 +41,14 @@ every XAML page has a corresponding C# class behind it. A breakdown of the indiv
 Class | Description
 ------------ | -------------
 App.xaml.cs | This class comes with any visual studi project and contains methods which describe what to do during the applications life cycle, example would be what the application does when its been launched, suspended or terminated. These methods give the developer great flexibility to describe what they want done during these critical stages ofthe application life cycle. This class alos contains custom made methods that i have created to manage things like navigation between pages and the games timers.
-Game.xaml.cs | This class is responsible for executing all the logic that goes into the minesweeper game itself. It is the most heavily coded area of the application.
-It contains methods for created the games grid, starting and stopping timers, positioning/checking for mines, applying game defaults, incrementing score and many others. The code
-itself has been heavily commented to assist anyone reading through it as best as possible.
-MainPage.xaml.cs | This class is simple enough in its structure. It is the logic for the Main(Home) page of the application. It checks the local user game settings and also
-contains some events to handle navigation.
+Game.xaml.cs | This class is responsible for executing all the logic that goes into the minesweeper game itself. It is the most heavily coded area of the application. It contains methods for created the games grid, starting and stopping timers, positioning/checking for mines, applying game defaults, incrementing score and many others. The code itself has been heavily commented to assist anyone reading through it as best as possible.
+MainPage.xaml.cs | This class is simple enough in its structure. It is the logic for the Main(Home) page of the application. It checks the local user game settings and also contains some events to handle navigation.
 Rules.xaml.cs | A simple class that uses a custom made object called RulesSetter to bind objects to a list of game rules to be displayed for the user.
-ScoresMenu.xaml.cs | This class is very similar to the Rules.xaml.cs as its used to bind objects to a list. The difference being that these list items have events attached to them
-so we can navigate to the selected page.
-SetHighScore.xaml.cs | This class is used as the starting point to submit scores to our database via the MVVM model. It recieves data from the Game.xaml.cs page when a user has
-won a game. Then submits that data to storage after the user fills in his/her information. 
-Settings.xaml.cs | This class is responible for changing the local settings of the game. The local setting change the games difficulty and are stored so this setting does
-not change when the app is closed. The class also contains some simple navigation methods.
-ViewHighScore.xaml.cs | This class binds score information from the database to a list via the MVVM architecture. It begins the bind procedure by grabbing the index of the selected
-score menu from the list on the previous page. It then passes this index into the ScoreOrganizerViewModel (described further down) which then takes over.
-GameDetailsPasser.cs | This class has two instance variables for score and grid size. It is used to pass game information from the game page to the set high score page once the
-user has won a game.
+ScoresMenu.xaml.cs | This class is very similar to the Rules.xaml.cs as its used to bind objects to a list. The difference being that these list items have events attached to them so we can navigate to the selected page.
+SetHighScore.xaml.cs | This class is used as the starting point to submit scores to our database via the MVVM model. It recieves data from the Game.xaml.cs page when a user has won a game. Then submits that data to storage after the user fills in his/her information. 
+Settings.xaml.cs | This class is responible for changing the local settings of the game. The local setting change the games difficulty and are stored so this setting does not change when the app is closed. The class also contains some simple navigation methods.
+ViewHighScore.xaml.cs | This class binds score information from the database to a list via the MVVM architecture. It begins the bind procedure by grabbing the index of the selected score menu from the list on the previous page. It then passes this index into the ScoreOrganizerViewModel (described further down) which then takes over.
+GameDetailsPasser.cs | This class has two instance variables for score and grid size. It is used to pass game information from the game page to the set high score page once the user has won a game.
 HighScoreType.cs | A very basic class with an instance variable of string type used to bind score menu options to a list item source in the high score menu page.
 IndexPasser.cs | A  basic class like the one previous with one instance variable of int type used to pass the selected index of a list box to the next page.
 
