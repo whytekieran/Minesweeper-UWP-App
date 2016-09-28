@@ -51,8 +51,12 @@ ViewHighScore.xaml.cs | This class binds score information from the database to 
 GameDetailsPasser.cs | This class has two instance variables for score and grid size. It is used to pass game information from the game page to the set high score page once the user has won a game.
 HighScoreType.cs | A very basic class with an instance variable of string type used to bind score menu options to a list item source in the high score menu page.
 IndexPasser.cs | A  basic class like the one previous with one instance variable of int type used to pass the selected index of a list box to the next page.
-
-describe the back end, c# classes used for the game and MVVM
+(MVVM) Data/DataService.cs | This class is at the data layer of the MVVM model i have implemented into this application. This particular class is responible solely for managing the score data in the SQLite database and contains methods to both read and write from it.
+(MVVM) Data/DataClasses.cs | This class contains all the class that are used to interact with the database. There are ten classes in total. Nine of these class are used to create the database tables hence giving each table a unique name apon creation, they are also used to insert data. The other class is a generic type which is the same as all the other classes. We use this class when retrieving data hence we dont need anymore than one observable collection and this makes everything more managable.
+(MVVM) Models/ScoreOrganizer.cs | This class works at the model layer and has the sole responsibility of communicating with the data layer. Inside this class we have a list of score objects which are managed within this class.
+(MVVM) ViewModels/VMHelper.cs | This class extends the INotification interface, this interface can tell when the property of an object has changed and can then describe how an object can participate in XAML bindings. It provides generalized methods that can be applied to any object that inherits this class and are performed when any property of the inheriting object(class) changes.
+(MVVM) ViewModels/ScoreOrganizerViewModel.cs | This class is responible for wrapping the ScoreOrganizer.cs class. It retrieves a list of score objects from this class and passes each object in the list to its own View Model then passes that View Model into an observable collection. An observable collection sends notifications any time one of its elements are altered.
+(MVVM) ViewModels/ScoreGenericViewModel.cs | Each element in the observable collection is of ScoreGenericViewModel type. The properties of this object use the setProperty method that it gets from inheriting our generic helper class, VMHelper. This method will send notications when one of the properties of this View Model changes.
 
 ### **SQLite**
 The SQLite database saves the scores on a local database. This database is used solely for the users scores and does not save online scores for all users that play the game.

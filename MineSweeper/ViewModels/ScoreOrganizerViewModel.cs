@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace MineSweeper.ViewModels
 {
-    //The NotificationBase class extends the INotifyPropertyChanged class which has generalized methods that describe what
+    //The VMHelper class extends the INotifyPropertyChanged class which has generalized methods that describe what
     //should be done when the property of an object changes. Because ScoreOrganizer.cs has a constructor that takes a parameter
-    //we cant include it as the wrapped model by using NotificationBase<ScoreOrganizer> instead we include it in the viewmodel
+    //we cant include it as the wrapped model by using VMHelper<ScoreOrganizer> instead we include it in the viewmodel
     //class as an instance variable and create a binding to it in MainPage.xaml.cs ..This is because the constructor for
-    //NotificationBase has been set that way. (See VMHelper.cs)
+    //VMHelper has been set that way. (See VMHelper.cs)
 
     //NOTE: Commented out code may not be nessesary for this program - at least not for now, looks doubtful
     public class ScoreOrganizerViewModel : VMHelper
