@@ -35,6 +35,18 @@ Settings.xaml | Here the user can set the game difficulty to easy medium or hard
 ViewHighScore.xaml | This page is where the user can view their high scores, the page uses the MVVM model to bind the scores to the page.
 
 ### **C#**
+The C# Programming language is what provides this application with its functionality. The logic behind all the XAML page views and more is all written using the C# language, hence
+every XAML page has a corresponding C# class behind it. A breakdown of the indiviual C# classes for this project is as follows:
+
+Class | Description
+------------ | -------------
+App.xaml.cs | This class comes with any visual studi project and contains methods which describe what to do during the applications life cycle, example would be what the application
+does when its been launched, suspended or terminated. These methods give the developer great flexibility to describe what they want done during these critical stages of
+the application life cycle.
+
+
+
+
 describe the back end, c# classes used for the game and MVVM
 
 ### **SQLite**
