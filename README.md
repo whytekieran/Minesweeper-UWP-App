@@ -120,7 +120,12 @@ The local high score storage for this minesweeper game are usingan SQLite databa
 //describe how to deploy the app here
 
 ## **_References_**
-1. [Making Listbox Items Stretch Page Width]( http://stackoverflow.com/questions/16616262/listboxitem-horizontalcontentalignment-to-stretch-across-full-width-of-listbox), contains information
-
-
-
+1. [Making Listbox Items Stretch Page Width]( http://stackoverflow.com/questions/16616262/listboxitem-horizontalcontentalignment-to-stretch-across-full-width-of-listbox)
+2. [Wrapping text in a text block](http://stackoverflow.com/questions/1832114/how-to-get-text-fit-in-text-block-in-wpf)
+3. [Help with accessibility error during MVVM creation](http://stackoverflow.com/questions/13660355/inconsistent-accessibility-property-type-is-less-accessible)
+4. [Advice on trying to create multiple SQLite tables from a single class](http://stackoverflow.com/questions/27723688/sqlite-net-create-two-tables-from-the-same-class)
+5. [Handling page back navigation](http://stackoverflow.com/questions/31832309/handling-back-navigation-windows-10-uwp)
+6. [Handling Orientation](http://blog.jerrynixon.com/2013/12/the-two-ways-to-handle-orientation-in.html)
+7. [SQLite connecting to db, and selecting and updating](http://stackoverflow.com/questions/33520099/how-to-update-row-in-sqlite-net-pcl-in-windows-10-c)
+8. [Timer for the game taken from previous project i did](https://github.com/whytekieran/MobileAppProject) 
+9. The code used to generate the grid came from a lab excercise example with Damien Costello last year. 
