@@ -99,10 +99,6 @@ tested it on which include my own desktop, my lumia 650 phone and a linx tablet.
 phone or tablet is rotated the screen wont change with it. With more time and in a real world environment additional work would obviously be put into so when the phone flips the 
 grid flips with it and looks good when it does.
 
-### **External Data Sources**
-//describe briefly that the app also has an api, discussed more down below
-
-
 ## **_SQLite Data Storage_**
 The local high score storage for this minesweeper game are usingan SQLite database. To install SQLite for a project on Visual Studio 2015 you must do the following:
 - First you need to go to the SQLite download site at [https://www.sqlite.org/download.html](https://www.sqlite.org/download.html)
@@ -124,4 +120,7 @@ The local high score storage for this minesweeper game are usingan SQLite databa
 //describe how to deploy the app here
 
 ## **_References_**
-//Add references here
+1. [Making Listbox Items Stretch Page Width]( http://stackoverflow.com/questions/16616262/listboxitem-horizontalcontentalignment-to-stretch-across-full-width-of-listbox), contains information
+
+
+
