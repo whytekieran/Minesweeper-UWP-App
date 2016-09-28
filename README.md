@@ -40,7 +40,7 @@ every XAML page has a corresponding C# class behind it. A breakdown of the indiv
 
 Class | Description
 ------------ | -------------
-App.xaml.cs | This class comes with any visual studi project and contains methods which describe what to do during the applications life cycle, example would be what the application does when its been launched, suspended or terminated. These methods give the developer great flexibility to describe what they want done during these critical stages ofthe application life cycle. This class alos contains custom made methods that i have created to manage things like navigation between pages and the games timers.
+App.xaml.cs | This class comes with any visual studio project and contains methods which describe what to do during the applications life cycle, example would be what the application does when its been launched, suspended or terminated. These methods give the developer great flexibility to describe what they want done during these critical stages ofthe application life cycle. This class also contains custom made methods that i have created to manage things like navigation between pages and the games timers.
 Game.xaml.cs | This class is responsible for executing all the logic that goes into the minesweeper game itself. It is the most heavily coded area of the application. It contains methods for created the games grid, starting and stopping timers, positioning/checking for mines, applying game defaults, incrementing score and many others. The code itself has been heavily commented to assist anyone reading through it as best as possible.
 MainPage.xaml.cs | This class is simple enough in its structure. It is the logic for the Main(Home) page of the application. It checks the local user game settings and also contains some events to handle navigation.
 Rules.xaml.cs | A simple class that uses a custom made object called RulesSetter to bind objects to a list of game rules to be displayed for the user.
@@ -88,7 +88,9 @@ whole model incredibly flexible. MVVM and its advantages are discussed in much m
 
 ### **MVVM**
 The Model View View-Model (MVVM) architecture is a style of writing applications that allows us to break up the code into easily managable modules.
-//describe the MVVM model used and how its implemented
+The goal of using the MVVM model is to have **easily interchangable modules**, this allows us to swap modules in and out and makes testing much easier. A prime example would be in
+**Unit Testing** where we can swap in a 'mock' module to replicate something and test the other components against it. The MVVM architecture is achieved by using **Generic classes** and
+methods. **The Generic type(T)** in C# can except any type of object, hence making our programs much more flexible and reducing the need to re-write code.
 
 ### **Handling Orientation & Screen Rotation*
 
