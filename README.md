@@ -92,7 +92,12 @@ The goal of using the MVVM model is to have **easily interchangable modules**, t
 **Unit Testing** where we can swap in a 'mock' module to replicate something and test the other components against it. The MVVM architecture is achieved by using **Generic classes** and
 methods. **The Generic type(T)** in C# can except any type of object, hence making our programs much more flexible and reducing the need to re-write code.
 
-### **Handling Orientation & Screen Rotation*
+### **Handling Orientation & Screen Rotation**
+When developing this application the main goal was to show my current skill at the C# programming language and to demonstrate concepts like MVVM. Therefore areas such as how pretty
+the application looked and how it looks when the screen is rotated where kept to a bare minimum. The application does look very nice though and works very well on the platforms ive
+tested it on which include my own desktop, my lumia 650 phone and a linx tablet. I have used an orientation sensor in the Game.xaml.cs to make sure that no matter which way the 
+phone or tablet is rotated the screen wont change with it. With more time and in a real world environment additional work would obviously be put into so when the phone flips the 
+grid flips with it and looks good when it does.
 
 ### **External Data Sources**
 //describe briefly that the app also has an api, discussed more down below
