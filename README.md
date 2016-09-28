@@ -40,9 +40,7 @@ every XAML page has a corresponding C# class behind it. A breakdown of the indiv
 
 Class | Description
 ------------ | -------------
-App.xaml.cs | This class comes with any visual studi project and contains methods which describe what to do during the applications life cycle, example would be what the application
-does when its been launched, suspended or terminated. These methods give the developer great flexibility to describe what they want done during these critical stages of
-the application life cycle. This class alos contains custom made methods that i have created to manage things like navigation between pages and the games timers.
+App.xaml.cs | This class comes with any visual studi project and contains methods which describe what to do during the applications life cycle, example would be what the application does when its been launched, suspended or terminated. These methods give the developer great flexibility to describe what they want done during these critical stages ofthe application life cycle. This class alos contains custom made methods that i have created to manage things like navigation between pages and the games timers.
 Game.xaml.cs | This class is responsible for executing all the logic that goes into the minesweeper game itself. It is the most heavily coded area of the application.
 It contains methods for created the games grid, starting and stopping timers, positioning/checking for mines, applying game defaults, incrementing score and many others. The code
 itself has been heavily commented to assist anyone reading through it as best as possible.
@@ -59,6 +57,8 @@ ViewHighScore.xaml.cs | This class binds score information from the database to 
 score menu from the list on the previous page. It then passes this index into the ScoreOrganizerViewModel (described further down) which then takes over.
 GameDetailsPasser.cs | This class has two instance variables for score and grid size. It is used to pass game information from the game page to the set high score page once the
 user has won a game.
+HighScoreType.cs | A very basic class with an instance variable of string type used to bind score menu options to a list item source in the high score menu page.
+IndexPasser.cs | A  basic class like the one previous with one instance variable of int type used to pass the selected index of a list box to the next page.
 
 describe the back end, c# classes used for the game and MVVM
 
