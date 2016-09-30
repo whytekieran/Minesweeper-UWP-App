@@ -114,7 +114,7 @@ The local high score storage for this minesweeper game are usingan SQLite databa
 - Thats it, SQLite is now installed into the project
 
 ## **_The External API_**
-//discuss the api created with jax-rs for global(online) high scores
+For the Application i have also taken the time to develope a custom API
 
 ## **_Deployment For Visual Studio 2015_**
 //describe how to deploy the app here

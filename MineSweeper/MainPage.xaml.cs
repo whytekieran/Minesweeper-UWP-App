@@ -119,5 +119,10 @@ namespace MineSweeper
         {
             this.Frame.Navigate(typeof(Rules));
         }
+
+        private void onlineScoreMenu(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(OnlineScoreMenu));
+        }
     }
 }

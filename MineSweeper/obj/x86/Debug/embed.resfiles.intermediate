@@ -1,8 +1,10 @@
 App.xbf
 Game.xbf
 MainPage.xbf
+OnlineScoreMenu.xbf
 Rules.xbf
 ScoresMenu.xbf
 SetHighScore.xbf
 Settings.xbf
 ViewHighScore.xbf
+ViewOnlineHighScore.xbf

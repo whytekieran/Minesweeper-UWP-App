@@ -76,6 +76,20 @@
                     PointerExited="btnHoverStopped"
                     Click="exitClick"/>
         </StackPanel>
+        <!--Button for Online high scores menu-->
+        <StackPanel x:Name="stackPanel2" Margin="0, 0, 0, 60"   
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom">
+            <Button x:Name="btnOnlineScores" 
+                    Content="Online Scores" 
+                    Width="140" 
+                    Background="White" 
+                    BorderBrush="Black" 
+                    FontFamily="Stencil"
+                    PointerEntered="btnHover"
+                    PointerExited="btnHoverStopped"
+                    Click="onlineScoreMenu"/>
+        </StackPanel>
     </Grid>
     <!--App bar at the bottom with settings and rules options. Bar can be opened/closed-->
     <Page.BottomAppBar>

@@ -12,26 +12,26 @@ namespace MineSweeper.ViewModels
     {
         public ScoreGenericViewModel(ScoreGeneric score = null) : base(score) { }
 
-        public int Id
+        public int id
         {
-            get { return This.Id; }
+            get { return This.id; }
             //Set property lambda expression trigger anonomous method. Then [CallerNameMember] can check what triggered it then
             //change that property. In this case the property would be Username
-            set { SetProperty(This.Id, value, () => This.Id = value); }
+            set { SetProperty(This.id, value, () => This.id = value); }
         }
 
-        public String Username
+        public String username
         {
-            get { return This.Username; }
+            get { return This.username; }
             //Set property lambda expression trigger anonomous method. Then [CallerNameMember] can check what triggered it then
             //change that property. In this case the property would be Username
-            set { SetProperty(This.Username, value, () => This.Username = value); }
+            set { SetProperty(This.username, value, () => This.username = value); }
         }
 
-        public int UserScore
+        public int userscore
         {
-            get { return This.UserScore; }
-            set { SetProperty(This.UserScore, value, () => This.UserScore = value); }
+            get { return This.userscore; }
+            set { SetProperty(This.userscore, value, () => This.userscore = value); }
         }
     }
 }

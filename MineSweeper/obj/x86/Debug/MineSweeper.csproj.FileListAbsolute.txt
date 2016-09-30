@@ -424,3 +424,14 @@ B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\D
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\MineSweeper.csprojResolveAssemblyReference.cache
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\SQLite.Net.Platform.WinRT.dll
 B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\SQLite.Net.dll
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\Newtonsoft.Json.dll
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\OnlineScoreMenu.xbf
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\OnlineScoreMenu.g.i.cs
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\OnlineScoreMenu.g.cs
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\OnlineScoreMenu.xaml
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\OnlineScoreMenu.xbf
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\ViewOnlineHighScore.xbf
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\ViewOnlineHighScore.g.i.cs
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\ViewOnlineHighScore.g.cs
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\ViewOnlineHighScore.xaml
+B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\obj\x86\Debug\ViewOnlineHighScore.xbf

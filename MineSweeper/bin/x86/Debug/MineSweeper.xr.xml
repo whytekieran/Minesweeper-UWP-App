@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="userScoreChoice" />
     <RootPropertyPathName Name="ruleDescription" />
     <RootPropertyPathName Name="ruleID" />
-    <RootPropertyPathName Name="userScoreChoice" />
+    <RootPropertyPathName Name="userscore" />
+    <RootPropertyPathName Name="username" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -88,20 +90,20 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="MineSweeper.Game" />
-    <RootType FullName="Windows.UI.Xaml.Media.CompositeTransform" />
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
       <RootProperty Name="Width" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="Background" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="FontFamily" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootEvent Name="PointerEntered" />
       <RootEvent Name="PointerExited" />
       <RootEvent Name="Click" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.CompositeTransform" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Source" />
       <RootProperty Name="Height" />
@@ -129,6 +131,7 @@
       <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
+    <RootType FullName="MineSweeper.OnlineScoreMenu" />
     <RootType FullName="MineSweeper.Rules" />
     <RootType FullName="MineSweeper.ScoresMenu" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
@@ -156,5 +159,6 @@
       <RootProperty Name="Mode" />
     </RootType>
     <RootType FullName="MineSweeper.ViewHighScore" />
+    <RootType FullName="MineSweeper.ViewOnlineHighScore" />
   </Roots.RootTypes>
 </Roots>

@@ -23,7 +23,7 @@ namespace MineSweeper.ViewModels
         ScoreOrganizer organizer;
         ScoreGeneric scoreGeneric;
 
-        //Overloaded default constructor
+        //Overloaded constructors for different tasks
         public ScoreOrganizerViewModel()
         {
             insertOrganizer = new ScoreOrganizer();
@@ -32,15 +32,12 @@ namespace MineSweeper.ViewModels
         //Contructor takes index of selected user option
         public ScoreOrganizerViewModel(int choosenTable)
         {
-            //Create ScoreOrganizer which will create a list of scores based on that choice
             organizer = new ScoreOrganizer(choosenTable);
-            //_SelectedIndex = -1;
 
             foreach (var score in organizer.scores)//access the list and loop over it (score objects)
             {
                 scoreGeneric = (ScoreGeneric)score;                               //Cast generic object to score object type
                 var newScore = new ScoreGenericViewModel(scoreGeneric);           //add each score object to a new ScoreGenericViewModel
-                //newScore.PropertyChanged += Person_OnNotifyPropertyChanged; //add event handler for property changes
                 scoresList.Add(newScore);
             }
         }

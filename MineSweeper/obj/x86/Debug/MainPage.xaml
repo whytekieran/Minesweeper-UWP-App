@@ -14,7 +14,7 @@
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Top">
 
-            <TextBlock x:ConnectionId='8' x:Name="Title"
+            <TextBlock x:ConnectionId='10' x:Name="Title"
                        Margin="0, 20, 0, 0" 
                        TextWrapping="Wrap" 
                        Text="MineSweeper" 
@@ -27,7 +27,7 @@
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center">
 
-            <Image x:ConnectionId='7' x:Name="image" Source="Images/Minesweeper7.png" 
+            <Image x:ConnectionId='9' x:Name="image" Source="Images/Minesweeper7.png" 
                    Height="275" 
                    Width="300" />
         </StackPanel>
@@ -44,7 +44,7 @@
             </StackPanel.RenderTransform>
 
             <!--Buttons-->
-            <Button x:ConnectionId='4' x:Name="btnPlay" 
+            <Button x:ConnectionId='6' x:Name="btnPlay" 
                     Content="Play" 
                     Width="94" 
                     Margin="0, 0, 15, 0" 
@@ -55,7 +55,7 @@
                                                    
                                      />
 
-            <Button x:ConnectionId='5' x:Name="btnScores" 
+            <Button x:ConnectionId='7' x:Name="btnScores" 
                     Content="Scores" 
                     Width="94"  
                     Margin="0, 0, 15, 0" 
@@ -66,7 +66,7 @@
                                                    
                                        />
 
-            <Button x:ConnectionId='6' x:Name="btnExit" 
+            <Button x:ConnectionId='8' x:Name="btnExit" 
                     Content="Exit" 
                     Width="94" 
                     Background="White" 
@@ -76,13 +76,27 @@
                                                    
                                      />
         </StackPanel>
+        <!--Button for Online high scores menu-->
+        <StackPanel x:ConnectionId='4' x:Name="stackPanel2" Margin="0, 0, 0, 60"   
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom">
+            <Button x:ConnectionId='5' x:Name="btnOnlineScores" 
+                    Content="Online Scores" 
+                    Width="140" 
+                    Background="White" 
+                    BorderBrush="Black" 
+                    FontFamily="Stencil"
+                                             
+                                                   
+                                           />
+        </StackPanel>
     </Grid>
     <!--App bar at the bottom with settings and rules options. Bar can be opened/closed-->
     <Page.BottomAppBar>
         <AppBar Background="LightGray" IsOpen="false" IsSticky="True">
             <StackPanel Orientation="Horizontal">
-                <AppBarButton x:ConnectionId='9' x:Name="Settings" Label="Settings" Icon="Setting"                      />
-                <AppBarButton x:ConnectionId='10' x:Name="Rules" Label="Game Rules" Icon="Help"                   />
+                <AppBarButton x:ConnectionId='11' x:Name="Settings" Label="Settings" Icon="Setting"                      />
+                <AppBarButton x:ConnectionId='12' x:Name="Rules" Label="Game Rules" Icon="Help"                   />
             </StackPanel>
         </AppBar>
     </Page.BottomAppBar>

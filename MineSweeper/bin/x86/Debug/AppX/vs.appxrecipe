@@ -28,13 +28,13 @@
     <AppXManifest Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-09-28T13:43:37.923</Modified>
+      <Modified>2016-09-30T13:02:38.074</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\MineSweeper.exe">
       <PackagePath>entrypoint\MineSweeper.exe</PackagePath>
-      <Modified>2016-09-28T13:43:37.090</Modified>
+      <Modified>2016-09-30T13:02:36.807</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kieran\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -95,6 +95,10 @@
     <AppxPackagedFile Include="C:\Users\Kieran\.nuget\packages\Microsoft.Win32.Primitives\4.0.0\lib\dotnet\Microsoft.Win32.Primitives.dll">
       <PackagePath>Microsoft.Win32.Primitives.dll</PackagePath>
       <Modified>2015-07-22T22:07:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Kieran\.nuget\packages\Newtonsoft.Json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2016-06-13T22:06:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Kieran\.nuget\packages\runtime.any.System.Private.DataContractSerialization\4.1.0\lib\netcore50\System.Private.DataContractSerialization.dll">
       <PackagePath>System.Private.DataContractSerialization.dll</PackagePath>
@@ -512,7 +516,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\MineSweeper.xr.xml">
       <PackagePath>MineSweeper.xr.xml</PackagePath>
-      <Modified>2016-09-28T13:43:36.865</Modified>
+      <Modified>2016-09-30T12:37:38.736</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -520,11 +524,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-09-28T13:43:37.619</Modified>
+      <Modified>2016-09-30T13:02:37.619</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="B:\Software Development Year 4 GMIT\AppProject\MineSweeper\MineSweeper\bin\x86\Debug\Core\MineSweeper.exe">
       <PackagePath>MineSweeper.exe</PackagePath>
-      <Modified>2016-09-28T13:43:37.918</Modified>
+      <Modified>2016-09-30T13:02:38.068</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
