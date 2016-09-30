@@ -114,10 +114,14 @@ The local high score storage for this minesweeper game are usingan SQLite databa
 - Thats it, SQLite is now installed into the project
 
 ## **_The External API_**
-For the Application i have also taken the time to develope a custom API using JAX-RS and the Jersey framework. The API itself handles both HTTP GET and POST requests so the user can both view and submit scores. The database working behind the API is an SQL database consisting of nine tables, one for the highscores of each game type.
+In developing this Application i have also taken the time to develope a custom API using JAX-RS and the Jersey framework. The API itself handles both HTTP GET and POST requests so the user can both view and submit scores. The database working behind the API is an SQL database consisting of nine tables, one for the highscores of each game type.
 
 ## **_Deployment For Visual Studio 2015_**
-//describe how to deploy the app here
+- Download the zip file provided.
+- Open the project .sln file using Visual Studio 2015.
+- You may need to follow the steps to install SQLite that were decribed earlier. Id imagine though that it will come as part of the project.
+- Run the project.
+- If there any difficulties dont hesitate to contact me on my student email. If the online scores are not working the server is most likely switched off. Let me know and i can switch it back on.
 
 ## **_References_**
 1. [Making Listbox Items Stretch Page Width]( http://stackoverflow.com/questions/16616262/listboxitem-horizontalcontentalignment-to-stretch-across-full-width-of-listbox)
