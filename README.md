@@ -114,7 +114,7 @@ The local high score storage for this minesweeper game are usingan SQLite databa
 - Thats it, SQLite is now installed into the project
 
 ## **_The External API_**
-For the Application i have also taken the time to develope a custom API
+For the Application i have also taken the time to develope a custom API using JAX-RS and the Jersey framework. The API itself handles both HTTP GET and POST requests so the user can both view and submit scores. The database working behind the API is an SQL database consisting of nine tables, one for the highscores of each game type.
 
 ## **_Deployment For Visual Studio 2015_**
 //describe how to deploy the app here
@@ -129,3 +129,15 @@ For the Application i have also taken the time to develope a custom API
 7. [SQLite connecting to db, and selecting and updating](http://stackoverflow.com/questions/33520099/how-to-update-row-in-sqlite-net-pcl-in-windows-10-c)
 8. [Timer for the game taken from previous project i did](https://github.com/whytekieran/MobileAppProject) 
 9. The code used to generate the grid came from a lab excercise example with Damien Costello last year. 
+10. [Exception handling with http post request in c#] (http://stackoverflow.com/questions/19034199/properly-handling-httpclient-exceptions-within-async-await) 
+11. [Convert HTTP response to json] (http://stackoverflow.com/questions/10928528/receiving-json-data-back-from-http-request) 
+12. [Convert HTTP response to json] (http://stackoverflow.com/questions/10928528/receiving-json-data-back-from-http-request) 
+13. Convert json to c# list - This was done as part of a lab exercise this semester.
+14. MVVM Structure - This was done as part of a lab exercise this semester.
+15. [C# GET Request] (http client get https://www.youtube.com/watch?v=EPSjxg4Rzs8)
+
+
+
+
+
+
