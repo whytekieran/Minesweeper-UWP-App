@@ -138,7 +138,7 @@ In developing this Application i have also taken the time to develope a custom A
 12. [Convert HTTP response to json] (http://stackoverflow.com/questions/10928528/receiving-json-data-back-from-http-request) 
 13. Convert json to c# list - This was done as part of a lab exercise this semester.
 14. MVVM Structure - This was done as part of a lab exercise this semester.
-15. [C# GET Request] (http client get https://www.youtube.com/watch?v=EPSjxg4Rzs8)
+15. [C# GET Request] (https://www.youtube.com/watch?v=EPSjxg4Rzs8)
 
 
 
