@@ -33,6 +33,7 @@ ScoresMenu.xaml | On this page the user can select from a list of menu options t
 SetHighScore.xaml | This page is shown after a user wins a game. It allows them to input a name and save their high score.
 Settings.xaml | Here the user can set the game difficulty to easy medium or hard mode.
 ViewHighScore.xaml | This page is where the user can view their high scores, the page uses the MVVM model to bind the scores to the page.
+ViewOnlineHighScore.xaml | This page is where the user can view their online high scores, the page uses basic data binding after using GET requests to get the scores from a custom made API.
 
 ### **C#**
 The C# Programming language is what provides this application with its functionality. The logic behind all the XAML page views and more is all written using the C# language, hence
@@ -48,6 +49,7 @@ ScoresMenu.xaml.cs | This class is very similar to the Rules.xaml.cs as its used
 SetHighScore.xaml.cs | This class is used as the starting point to submit scores to our database via the MVVM model. It recieves data from the Game.xaml.cs page when a user has won a game. Then submits that data to storage after the user fills in his/her information. 
 Settings.xaml.cs | This class is responible for changing the local settings of the game. The local setting change the games difficulty and are stored so this setting does not change when the app is closed. The class also contains some simple navigation methods.
 ViewHighScore.xaml.cs | This class binds score information from the database to a list via the MVVM architecture. It begins the bind procedure by grabbing the index of the selected score menu from the list on the previous page. It then passes this index into the ScoreOrganizerViewModel (described further down) which then takes over.
+ViewOnlineHighScore.xaml.cs | This class is responible for using GET requests to grab the scores from the custom API ive created then adding these scores to a list box of items.
 GameDetailsPasser.cs | This class has two instance variables for score and grid size. It is used to pass game information from the game page to the set high score page once the user has won a game.
 HighScoreType.cs | A very basic class with an instance variable of string type used to bind score menu options to a list item source in the high score menu page.
 IndexPasser.cs | A  basic class like the one previous with one instance variable of int type used to pass the selected index of a list box to the next page.
