@@ -103,19 +103,19 @@ grid flips with it and looks good when it does. In a real world environment scre
 
 ```cs
 <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                    <!--VisualState to be triggered when window width is >=720 effective pixels.-->
-                        <AdaptiveTrigger MinWindowWidth="720" />
-                    </VisualState.StateTriggers>
+       <VisualStateGroup>
+         <VisualState>
+           <VisualState.StateTriggers>
+               <!--VisualState to be triggered when window width is >=720 effective pixels.-->
+              <AdaptiveTrigger MinWindowWidth="720" />
+           </VisualState.StateTriggers>
 
-                    <VisualState.Setters>
-                        <Setter Target="myPanel.Orientation" Value="Horizontal" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+           <VisualState.Setters>
+              <Setter Target="myPanel.Orientation" Value="Horizontal" />
+           </VisualState.Setters>
+        </VisualState>
+     </VisualStateGroup>
+</VisualStateManager.VisualStateGroups>
 ```
 **Above is referenced from the MSDN site**
 
