@@ -92,7 +92,7 @@ whole model incredibly flexible. MVVM and its advantages are discussed in much m
 The Model View View-Model (MVVM) architecture is a style of writing applications that allows us to break up the code into easily managable modules.
 The goal of using the MVVM model is to have **easily interchangable modules**, this allows us to swap modules in and out and makes testing much easier. A prime example would be in
 **Unit Testing** where we can swap in a 'mock' module to replicate something and test the other components against it. The MVVM architecture is achieved by using **Generic classes** and
-methods. **The Generic type(T)** in C# can except any type of object, hence making our programs much more flexible and reducing the need to re-write code.
+methods. **The Generic type(T)** in C# can except any type of object, hence making our programs much more flexible and reducing the need to re-write code. I began work on this project very early in the year, even before MVVM was announced to be a component of it. Some of the parts of this project dont use the MVVM model for this very reason and others dont because its not necessary. However to show i can use and understand this architecture id did implment an MVVM type architecture in some areas of this project, like for example the high score view.
 
 ### **Handling Orientation & Screen Rotation**
 When developing this application the main goal was to show my current skill at the C# programming language and to demonstrate concepts like MVVM. Therefore areas such as how pretty
