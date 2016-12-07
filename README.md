@@ -119,8 +119,8 @@ grid flips with it and looks good when it does. In a real world environment scre
 ```
 **Above is referenced from the MSDN site**
 
-## **_SQLite Data Storage_**
-The local high score storage for this minesweeper game are usingan SQLite database. To install SQLite for a project on Visual Studio 2015 you must do the following:
+## **_Installing SQLite_**
+The local high score storage for this minesweeper game im using an SQLite database. To install SQLite for a project on Visual Studio 2015 you must do the following:
 - First you need to go to the SQLite download site at [https://www.sqlite.org/download.html](https://www.sqlite.org/download.html)
 - Download SQLite for **Universal Windows Platform**
 - Open up Visual Studio 2015
